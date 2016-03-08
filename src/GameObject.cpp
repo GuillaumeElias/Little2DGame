@@ -72,6 +72,9 @@ void GameObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel
     }
 }
 
+void GameObject::handleEvent(SDL_Event& e){
+}
+
 bool GameObject::isPlayerAbove(PlayerPosition* pPos){
     if(dead){
         return false;
