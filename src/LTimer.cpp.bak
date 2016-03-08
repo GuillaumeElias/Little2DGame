@@ -1,0 +1,6 @@
+#include "LTimer.h"
+
+LTimer::LTimer()
+{
+    //ctor
+}

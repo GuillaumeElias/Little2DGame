@@ -1,0 +1,32 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+#include <SDL.h>
+#include <LTexture.h>
+#include <../src/Constants.h>
+
+class Player
+{
+    public:
+        Player(LTexture* texture);
+        virtual ~Player();
+
+		static const int DOT_WIDTH = 20;
+		static const int DOT_HEIGHT = 20;
+
+		static const int DOT_VEL = 10;
+
+		void handleEvent( SDL_Event& e );
+
+		void move();
+
+		void render();
+    protected:
+    private:
+        LTexture* gPlayerTexture;
+
+		int mPosX, mPosY;
+
+		int mVelX, mVelY;
+};
+
+#endif // PLAYER_H
