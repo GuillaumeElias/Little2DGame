@@ -31,14 +31,15 @@ I used Code::Blocks 13.12 as IDE with MinGW (GCC 4.8.1).
 
 ## Libraries
 
-The libraries requires for this game to run are :
+The libraries required for this game to run are (so far) :
+
 1. SDL2
 2. SDL2_Image
 3. SDL2_TTF
 
 ## Reference
 
-The core of this game is loosely based on LazyFoo's tutorial [link](http://lazyfoo.net/tutorials/SDL/).
+The core of this game is loosely based on [LazyFoo's tutorial](http://lazyfoo.net/tutorials/SDL/).
 
 ## License
 
