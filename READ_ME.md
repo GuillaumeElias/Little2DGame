@@ -7,11 +7,11 @@ The idea behind this game is to make a kind of 2D platform game with elements of
 
 ## Current state
 
-### Now
+#### Now
 
 This game is a work in progress. I'm currenly focusing on the core functionalities and the proper level editing will be done at a later stage. Which means the levels present at this point are only there for a testing purpose.
 
-### Coming up
+#### Coming up
 
 1. Music & Sounds (I started working on it already)
 2. Better looking graphics and animations
@@ -23,7 +23,7 @@ The purpose of this game is just a personal exercice which I'll try to make as p
 
 ## Installation
 
-If you're run a 64bit Windows you can try running the executable in the bin folder (along with the dll's). Otherwise, you'll have to compile everything using MinGW.
+If you run a 64bit Windows you can try running the executable in the bin folder (along with the dll's). Otherwise, you'll have to compile everything using MinGW.
 
 ## Environment
 
