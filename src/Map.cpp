@@ -9,6 +9,8 @@ Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LText
 }
 
 void Map::loadLevel(int nb){
+    
+    //build and load level texture
     gLevelTexture = new LMapTexture(gRenderer, gWindow);
 
     std::ostringstream levelPathBaseOss;
@@ -19,9 +21,10 @@ void Map::loadLevel(int nb){
         return;
     }
 
+    //read level descriptor text file
     std::ifstream txtFile(std::string(levelPathBaseOss.str() + ".txt").c_str());
     std::string line;
-    while (std::getline(txtFile, line)){
+    while (std::getline(txtFile, line)){ //each line creates a new instance of a game object
         std::istringstream iss(line);
         int posX, posY, param;
         std::string typeStr;
@@ -29,8 +32,8 @@ void Map::loadLevel(int nb){
             std::cerr << "Could not read line" << std::endl;
             break;
         }
-        //std::cout << posX << " " << posY << " : " <<  typeStr << std::endl;
 
+        //create specific game object instance based on type
         if(typeStr == "BLOB"){
             BlobObject* blob = new BlobObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory);
             blob->init();
@@ -82,6 +85,7 @@ void Map::resetLevel(){
     visibleLevel.w = SCREEN_WIDTH;
     visibleLevel.h = SCREEN_HEIGHT - MARGIN_BOTTOM;
 
+    //call rebirth() for each game object
     for(int i=0; i<gameObjects.size(); i++){
         gameObjects[i]->rebirth();
     }
@@ -190,8 +194,10 @@ bool Map::checkCollision(const SDL_Rect &collider, bool terrainOnly){
 }
 
 void Map::render(SDL_Renderer* gRenderer, const SDL_Rect &passedVisibleLevel){
+    //render level texture
     gLevelTexture->render( 0, 0, &visibleLevel );
 
+    //render all game objects
     for(int i=0; i<gameObjects.size(); i++){
         gameObjects[i]->render(gRenderer, visibleLevel);
     }
@@ -210,7 +216,7 @@ std::vector<GameObject*>* Map::getGameObjects(){
 }
 
 Character* Map::getCharacter(int characterId){
-   if(characters.count(characterId) > 0){
+   if(characters.count(characterId) > 0){ //if character is in map
         return characters[characterId];
    }else{
         return NULL;
