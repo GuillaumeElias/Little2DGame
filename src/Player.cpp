@@ -132,6 +132,9 @@ void Player::handleEvent(SDL_Event& e){
                     ballisticEngine->fireBullet(pos, facingLeft() ? LEFT : RIGHT);
                     fireTimer.start();
                 }
+                break;
+            case SDLK_ESCAPE:
+                pause = true;
         }
     }
 }
@@ -313,6 +316,14 @@ bool Player::hasDied(){
 
 PlayerPosition* Player::getPos(){
     return &pos;
+}
+
+bool Player::inPause(){
+    return pause;
+}
+
+void Player::setPause(bool pause){
+    this->pause = pause;
 }
 
 Player::~Player(){

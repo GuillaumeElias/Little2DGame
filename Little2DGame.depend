@@ -336,7 +336,7 @@
 	<Player.h>
 	"src/Constants.h"
 
-1460137401 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
+1461508499 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
 	"Game.h"
 
 1457464993 c:\users\guillaume\documents\cppstuff\little2dgame\include\game.h
@@ -370,10 +370,10 @@
 1436723438 c:\users\guillaume\documents\cppstuff\little2dgame\include\ltimer.h
 	<SDL.h>
 
-1460137453 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
+1461506698 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
 	"Player.h"
 
-1457466079 c:\users\guillaume\documents\cppstuff\little2dgame\include\player.h
+1461506265 c:\users\guillaume\documents\cppstuff\little2dgame\include\player.h
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -477,12 +477,12 @@
 1452444149 c:\users\guillaume\documents\cppstuff\little2dgame\include\endobject.h
 	<GameObject.h>
 
-1457465702 c:\users\guillaume\documents\cppstuff\little2dgame\include\menu.h
+1461508317 c:\users\guillaume\documents\cppstuff\little2dgame\include\menu.h
 	<SDL.h>
 	<Utils/IRenderedElement.h>
 	<Utils/LTexture.h>
 
-1457027730 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\menu.cpp
+1461508540 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\menu.cpp
 	"Menu.h"
 
 1457466521 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\dialogplayer.cpp
@@ -515,7 +515,7 @@
 	<GameObject.h>
 	<Character.h>
 
-1461502752 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
+1461502832 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
 	"BallisticEngine.h"
 
 1457464402 c:\users\guillaume\documents\cppstuff\little2dgame\include\ballisticengine.h
@@ -583,14 +583,14 @@
 1457022597 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltimer.cpp
 	"Utils/LTimer.h"
 
-1457021946 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
+1461502851 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
 	"Objects/ZombieObject.h"
 
 1457463908 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\beastobject.h
 	<GameObject.h>
 	<BottomBar.h>
 
-1457018540 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\beastobject.cpp
+1461502872 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\beastobject.cpp
 	"Objects/BeastObject.h"
 
 1457464283 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltexturefactory.h

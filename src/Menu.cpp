@@ -2,8 +2,13 @@
 
 Menu::Menu(SDL_Renderer* renderer, SDL_Window* window) : gRenderer(renderer), gWindow(window){
     //load textures
-    backgroundTexture = new LTexture(gRenderer, false);
-    if( !backgroundTexture->loadFromFile("img/menu.png", {0, 0, 0} ) ){
+    backgroundTextureStart = new LTexture(gRenderer, false);
+    if( !backgroundTextureStart->loadFromFile("img/menuStart.png", {0, 0, 0} ) ){
+        printf( "Failed to load menu texture!\n" );
+        return;
+    }
+    backgroundTexturePause = new LTexture(gRenderer, false);
+    if( !backgroundTexturePause->loadFromFile("img/menuPause.png", {0, 0, 0} ) ){
         printf( "Failed to load menu texture!\n" );
         return;
     }
@@ -12,6 +17,7 @@ Menu::Menu(SDL_Renderer* renderer, SDL_Window* window) : gRenderer(renderer), gW
         printf( "Failed to load menu selection texture!\n" );
         return;
     }
+    mode = START;
 }
 
 void Menu::handleEvent(SDL_Event& e){
@@ -40,8 +46,13 @@ void Menu::handleEvent(SDL_Event& e){
 }
 
 void Menu::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){
+
     //renders background
-    backgroundTexture->render(0, 0);
+    if(mode == START){
+        backgroundTextureStart->render(0, 0);
+    }else{
+        backgroundTexturePause->render(0, 0);
+    }
 
     //renders selection texture where it should be
     switch(selection){
@@ -50,11 +61,22 @@ void Menu::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){
         case 1 : selectionTexture->render(290, 318);
         break;
     }
+}
 
+MenuMode Menu::getMode(){
+    return mode;
+}
+
+void Menu::setMode(MenuMode mode){
+    this->mode = mode;
 }
 
 MenuChoice Menu::getChoice(){
     return selectedChoice;
+}
+
+void Menu::clearChoice(){
+    selectedChoice = NONE;
 }
 
 Menu::~Menu(){
