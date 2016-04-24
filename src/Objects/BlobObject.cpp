@@ -48,7 +48,9 @@ void BlobObject::onCollision(){
 int BlobObject::onHit(BulletType bulletType){
     if(life <= 1){
         dead = true;
+        return 1;
     }else{
         life--; //TODO depends on bullet type
+        return 0;
     }
 }

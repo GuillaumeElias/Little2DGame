@@ -9,7 +9,7 @@ Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LText
 }
 
 void Map::loadLevel(int nb){
-    
+
     //build and load level texture
     gLevelTexture = new LMapTexture(gRenderer, gWindow);
 
@@ -221,6 +221,10 @@ Character* Map::getCharacter(int characterId){
    }else{
         return NULL;
    }
+}
+
+BottomBar* const Map::getBottomBar(){
+    return bottomBar;
 }
 
 Map::~Map(){

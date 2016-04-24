@@ -69,7 +69,7 @@ Player::Player(SDL_Renderer* gRenderer, SDL_Window* gWindow, BallisticEngine* ba
 void Player::initPos(){
     //set player position based on height
     pos.x = 0;
-    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1;
+    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1 - 30;
 
     //set player collider
     mCollider.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT;

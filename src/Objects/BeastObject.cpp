@@ -85,8 +85,10 @@ void BeastObject::onCollision(){
 int BeastObject::onHit(BulletType bulletType){
     if(life <= 1){
         dead = true;
+        return 3;
     }else{
         life--; //TODO depends on bullet type
+        return 0;
     }
 }
 

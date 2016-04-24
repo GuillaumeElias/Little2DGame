@@ -63,8 +63,10 @@ void ZombieObject::onCollision(){
 int ZombieObject::onHit(BulletType bulletType){
     if(life <= 1){
         dead = true;
+        return 2;
     }else{
         life--; //TODO depends on bullet type
+        return 0;
     }
 }
 

@@ -13,7 +13,7 @@ Game::Game(){
     listenKeys = true;
 
     //initialize game state
-    gameState = MENU/*PLAYING*/; //TODO put back
+    gameState = /*MENU*/PLAYING; //TODO put back
 }
 
 Game::~Game()
