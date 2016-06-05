@@ -409,7 +409,7 @@
 1452605069 c:\users\guillaume\documents\cppstuff\little2dgame\include\irenderedelement.h
 	<SDL.h>
 
-1465130849 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
+1465137414 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
 	"Map.h"
 
 1461502624 c:\users\guillaume\documents\cppstuff\little2dgame\include\map.h
@@ -443,7 +443,7 @@
 	<SDL.h>
 	<LTexture.h>
 
-1457465229 c:\users\guillaume\documents\cppstuff\little2dgame\include\gameobject.h
+1465136940 c:\users\guillaume\documents\cppstuff\little2dgame\include\gameobject.h
 	<string>
 	<fstream>
 	<sstream>
@@ -461,7 +461,7 @@
 	<LTimer.h>
 	<GameObject.h>
 
-1457478360 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\gameobject.cpp
+1465136920 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\gameobject.cpp
 	"GameObject.h"
 
 1452444138 c:\users\guillaume\documents\cppstuff\little2dgame\include\elevatorobject.h
@@ -485,10 +485,10 @@
 1461508540 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\menu.cpp
 	"Menu.h"
 
-1457466521 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\dialogplayer.cpp
+1465137580 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\dialogplayer.cpp
 	"DialogPlayer.h"
 
-1457464892 c:\users\guillaume\documents\cppstuff\little2dgame\include\dialogplayer.h
+1465137535 c:\users\guillaume\documents\cppstuff\little2dgame\include\dialogplayer.h
 	<vector>
 	<iostream>
 	<sstream>
@@ -502,10 +502,11 @@
 	<Utils/IRenderedElement.h>
 	<Character.h>
 
-1457025296 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\character.cpp
+1465138342 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\character.cpp
 	"Character.h"
 
-1457464854 c:\users\guillaume\documents\cppstuff\little2dgame\include\character.h
+1465137755 c:\users\guillaume\documents\cppstuff\little2dgame\include\character.h
+	<vector>
 	<GameObject.h>
 
 1457463811 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\trigger.cpp
@@ -553,7 +554,7 @@
 	<GameObject.h>
 	<BottomBar.h>
 
-1457464158 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\elevatorobject.h
+1465136274 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\elevatorobject.h
 	<iostream>
 	<GameObject.h>
 
@@ -568,7 +569,7 @@
 1461502151 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\blobobject.cpp
 	"Objects/BlobObject.h"
 
-1457020824 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\elevatorobject.cpp
+1465136817 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\elevatorobject.cpp
 	"Objects/ElevatorObject.h"
 
 1457020787 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\endobject.cpp

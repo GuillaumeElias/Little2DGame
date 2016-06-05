@@ -51,7 +51,7 @@ void Map::loadLevel(int nb){
             elevator->init();
             gameObjects.push_back(elevator);
         }else if(typeStr == "CHARACTER"){
-            Character* characterObj = new Character(gRenderer, gWindow, posX, posY, lTextureFactory, param);
+            Character* characterObj = new Character(gRenderer, gWindow, posX, posY, lTextureFactory, param, &gameObjects);
             characterObj->init();
             gameObjects.push_back(characterObj);
             characters[param] = characterObj;
