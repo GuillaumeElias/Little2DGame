@@ -98,7 +98,7 @@ void Player::reinit(){
     init = true;
 
     pos.x = 0;
-    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1;
+    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1 - 15;
 }
 
 void Player::handleEvent(SDL_Event& e){
