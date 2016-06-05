@@ -101,5 +101,5 @@ void BallisticEngine::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisible
 
 BallisticEngine::~BallisticEngine()
 {
-    //dtor
+    delete bulletTexture;
 }

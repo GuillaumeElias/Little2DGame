@@ -243,6 +243,6 @@ bool isWall(Uint32 pixel){
     green = colors[ 1 ];
     red = colors[ 2 ];
 
-    return (red==0 && green==0 && blue==0) || (red==195 && green==195 && blue==195)
-    || (red==237 && green==28 && blue==36)|| (red==185 && green==122 && blue==87);
+    return (red==0 && green==0 && blue==0) || (red==195 && green==195 && blue==195) //
+    || (red==237 && green==28 && blue==36)|| (red==185 && green==122 && blue==87); //brown (#B97A57)
 }

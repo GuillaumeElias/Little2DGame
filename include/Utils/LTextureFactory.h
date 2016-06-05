@@ -8,8 +8,7 @@
 /**
 Builds and keeps all textures to avoid reloading the same texture multiple times.
 */
-class LTextureFactory
-{
+class LTextureFactory{
     public:
         LTextureFactory(SDL_Renderer* gRenderer);
         virtual ~LTextureFactory();

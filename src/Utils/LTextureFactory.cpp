@@ -5,7 +5,7 @@ LTextureFactory::LTextureFactory(SDL_Renderer* gRenderer) : gRenderer(gRenderer)
 }
 
 LTextureFactory::~LTextureFactory(){
-    //dtor
+    //TODO iterate on all texture and delete
 }
 
 LTexture* LTextureFactory::fetchTexture(std::string path, bool inGameViewport){
