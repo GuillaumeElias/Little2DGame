@@ -36,6 +36,10 @@ void BottomBar::takeHit(int nb){
     health-=nb;
 }
 
+void BottomBar::addPoints(int points){
+    this->points += points;
+}
+
 bool BottomBar::isPlayerDead(){
     return health <= 0;
 }

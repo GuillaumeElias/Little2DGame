@@ -1,7 +1,7 @@
 #include "Character.h"
 
-Character::Character(SDL_Renderer* renderer, SDL_Window* window, int pX, int pY, LTextureFactory* lTextFact, int characterId)
-: GameObject(renderer, window, pX, pY, lTextFact), characterId(characterId){
+Character::Character(SDL_Renderer* renderer, SDL_Window* window, int pX, int pY, LTextureFactory* lTextFact, int characterId, const std::vector<GameObject*>* gameObjects)
+: GameObject(renderer, window, pX, pY, lTextFact), characterId(characterId), gameObjects(gameObjects){
     //define textureName based on character id
     textureName << "characters/" << characterId << ".png";
 }
@@ -60,6 +60,13 @@ void Character::onCollision(){
 
 }
 
+void Character::onDialogEnd(){
+    if(characterId == 1){ //Robert
+        for(int i=0; i<gameObjects->size(); i++){
+            gameObjects->at(i)->setDisabled(false); //enables all objects in level
+        }
+    }
+}
 int Character::getId(){
     return characterId;
 }

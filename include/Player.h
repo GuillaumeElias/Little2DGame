@@ -31,6 +31,8 @@ class Player : IRenderedElement
         void die(); //start death animation
         bool isDying(); //ongoing death animation
         bool hasDied(); //player dead and death animation finished
+        bool inPause();
+        void setPause(bool pause);
         void reinit(); //reset initial position in new level
         PlayerPosition* getPos();
     protected:
@@ -56,6 +58,7 @@ class Player : IRenderedElement
 		int frame = 0;
 		bool died = false;
 		bool init = false;
+		bool pause = false;
 
         SDL_Rect mCollider;
 

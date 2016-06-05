@@ -26,6 +26,7 @@ class BottomBar : IRenderedElement
         void render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel);
 
         void takeHit(int nb);
+        void addPoints(int points);
         void levelCompleted();
 
         bool isPlayerDead();

@@ -45,6 +45,7 @@ class Map : IRenderedElement
 
 		int getLevelWidth();
 		std::vector<GameObject*>* getGameObjects();
+		BottomBar* const getBottomBar();
 
         bool checkCollision(const SDL_Rect &collider, bool terrainOnly); //(terrainOnly means ignore the objects)
 

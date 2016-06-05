@@ -125,6 +125,14 @@ bool GameObject::isDead(){
     return dead;
 }
 
+bool GameObject::isDisabled(){
+    return disabled;
+}
+
+void GameObject::setDisabled(bool disabled){
+    this->disabled = disabled;
+}
+
 int GameObject::getWidth(){
     return width;
 }

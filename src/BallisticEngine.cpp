@@ -74,13 +74,19 @@ void BallisticEngine::move(Map* map){
 
         }
 
+        int earnedPoints = 0;
+
         //check collision against every game object
         std::vector<GameObject*>* gameObjects = map->getGameObjects();
         for(int j=0; j<gameObjects->size(); j++){
             if(gameObjects->at(j)->checkCollision(collider, true)){
                 bullets.erase(bullets.begin() + i);
-                gameObjects->at(j)->onHit(PLAYER_BULLET_1); //TODO get bullet type from bullet
+                earnedPoints += gameObjects->at(j)->onHit(PLAYER_BULLET_1); //TODO get bullet type from bullet
             }
+        }
+
+        if(earnedPoints>0){
+            map->getBottomBar()->addPoints(earnedPoints);
         }
 
      }
@@ -95,5 +101,5 @@ void BallisticEngine::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisible
 
 BallisticEngine::~BallisticEngine()
 {
-    //dtor
+    delete bulletTexture;
 }

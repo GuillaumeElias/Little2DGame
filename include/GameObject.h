@@ -35,6 +35,8 @@ class GameObject : public IRenderedElement
 
         LTexture* getTexture();
         bool isDead();
+        bool isDisabled();
+        void setDisabled(bool disabled);
         int getWidth();
         int getHeight();
     protected:
@@ -46,6 +48,7 @@ class GameObject : public IRenderedElement
         int posX, posY;
         int width, height;
         bool dead = false;
+        bool disabled = false;
 
         bool isPlayerAbove(PlayerPosition* playerPos);
         bool isPlayerBelow(PlayerPosition* playerPos);

@@ -93,7 +93,10 @@ void DialogPlayer::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
     //if reached the end of dialog
     if(currentLine >= lines.size()){
         finished = true;
-        character = NULL;
+        if(character != NULL){
+            character->onDialogEnd();
+            character = NULL;
+        }
         return;
     }
 

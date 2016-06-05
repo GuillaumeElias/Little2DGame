@@ -69,7 +69,7 @@ Player::Player(SDL_Renderer* gRenderer, SDL_Window* gWindow, BallisticEngine* ba
 void Player::initPos(){
     //set player position based on height
     pos.x = 0;
-    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1;
+    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1 - 30;
 
     //set player collider
     mCollider.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT;
@@ -132,6 +132,9 @@ void Player::handleEvent(SDL_Event& e){
                     ballisticEngine->fireBullet(pos, facingLeft() ? LEFT : RIGHT);
                     fireTimer.start();
                 }
+                break;
+            case SDLK_ESCAPE:
+                pause = true;
         }
     }
 }
@@ -313,6 +316,14 @@ bool Player::hasDied(){
 
 PlayerPosition* Player::getPos(){
     return &pos;
+}
+
+bool Player::inPause(){
+    return pause;
+}
+
+void Player::setPause(bool pause){
+    this->pause = pause;
 }
 
 Player::~Player(){

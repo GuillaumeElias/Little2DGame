@@ -9,7 +9,7 @@ Game::Game(){
     topViewport.w = SCREEN_WIDTH;
     topViewport.h = SCREEN_HEIGHT - MARGIN_BOTTOM;
 
-    level = 0;
+    level = -1;
     listenKeys = true;
 
     //initialize game state
@@ -44,7 +44,7 @@ void Game::run(){
         Player* player = new Player(gRenderer, gWindow, ballisticEngine, playerInventory);
 
         //load first level
-        map->loadLevel(level);
+        map->loadLevel(0);
 
         SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0x00 );
 
@@ -68,14 +68,21 @@ void Game::run(){
                     SDL_RenderPresent( gRenderer );
 
                     if(menu->getChoice() == PLAY){ //user selected "PLAY"
-                        dialogPlayer->loadLevel(-1); // load intro
-                        gameState = DIALOG;
+                        if(level == -1){
+                            dialogPlayer->loadLevel(level++); // load intro
+                            gameState = DIALOG;
+                        }else{
+                            menu->setMode(START);
+                            gameState = PLAYING;
+                            player->setPause(false);
+                        }
+                        menu->clearChoice();
+
                         break;
                     }else if(menu->getChoice() == LEAVE){ //player selected "LEAVE"
                         quit = true;
                         break;
                     }
-
                 break;
 
                 /***************DIALOG******************/
@@ -168,6 +175,13 @@ void Game::run(){
                         gameState = DIALOG; //do to dialog mode
 
                         continue;
+                    }else if(player->inPause()){
+                        if(menu->getMode() != PAUSE){
+                            menu->setMode(PAUSE);
+                            gameState = MENU;
+                            SDL_RenderSetViewport( gRenderer, NULL );
+                            continue;
+                        }
                     }
 
                     SDL_RenderClear( gRenderer );

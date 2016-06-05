@@ -9,7 +9,7 @@ Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LText
 }
 
 void Map::loadLevel(int nb){
-    
+
     //build and load level texture
     gLevelTexture = new LMapTexture(gRenderer, gWindow);
 
@@ -51,7 +51,7 @@ void Map::loadLevel(int nb){
             elevator->init();
             gameObjects.push_back(elevator);
         }else if(typeStr == "CHARACTER"){
-            Character* characterObj = new Character(gRenderer, gWindow, posX, posY, lTextureFactory, param);
+            Character* characterObj = new Character(gRenderer, gWindow, posX, posY, lTextureFactory, param, &gameObjects);
             characterObj->init();
             gameObjects.push_back(characterObj);
             characters[param] = characterObj;
@@ -223,6 +223,10 @@ Character* Map::getCharacter(int characterId){
    }
 }
 
+BottomBar* const Map::getBottomBar(){
+    return bottomBar;
+}
+
 Map::~Map(){
     unloadLevel();
 }
@@ -239,6 +243,6 @@ bool isWall(Uint32 pixel){
     green = colors[ 1 ];
     red = colors[ 2 ];
 
-    return (red==0 && green==0 && blue==0) || (red==195 && green==195 && blue==195)
-    || (red==237 && green==28 && blue==36)|| (red==185 && green==122 && blue==87);
+    return (red==0 && green==0 && blue==0) || (red==195 && green==195 && blue==195) //
+    || (red==237 && green==28 && blue==36)|| (red==185 && green==122 && blue==87); //brown (#B97A57)
 }
