@@ -22,6 +22,8 @@ BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
 
     health = PLAYER_INIT_HEALTH;
     points = 0;
+    currentBananas = 0;
+    totalBananas = 0;
 }
 
 BottomBar::~BottomBar()
@@ -40,6 +42,10 @@ void BottomBar::addPoints(int points){
     this->points += points;
 }
 
+void BottomBar::eatBanana(){
+    this->currentBananas++;
+}
+
 bool BottomBar::isPlayerDead(){
     return health <= 0;
 }
@@ -48,28 +54,22 @@ bool BottomBar::isLevelFinished(){
     return levelFinished;
 }
 
+bool BottomBar::areAllBananasEaten(){
+    return currentBananas >= totalBananas;
+}
+
 void BottomBar::rebirth(){
     levelFinished = false;
     health = PLAYER_INIT_HEALTH;
 }
 
+void BottomBar::setTotalBananas(int totalBananas){
+    this->totalBananas = totalBananas;
+}
+
 void BottomBar::levelCompleted(){
     levelFinished=true;
 }
-
-/*void BottomBar::handleEvent(SDL_Event& e){
-	if( e.type == SDL_KEYDOWN && e.key.repeat == 0 )
-    {
-        switch( e.key.keysym.sym )
-        {
-            case SDLK_UP:  break;
-            case SDLK_DOWN: break;
-            case SDLK_LEFT:  break;
-            case SDLK_RIGHT:  break;
-        }
-    }
-
-}*/
 
 void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
     SDL_Color color = {255, 255, 255};
@@ -86,6 +86,9 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
     //build text
     std::ostringstream messageOss;
     messageOss << "HEALTH: " << health << "   POINTS: " << points << "    ITEMS:";
+    if(totalBananas > 0){
+        messageOss << "             BANANAS: " << currentBananas << "/" << totalBananas;
+    }
     std::string message = messageOss.str();
     messageOss.str("");
     messageOss.clear();

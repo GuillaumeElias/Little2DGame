@@ -19,6 +19,7 @@
 #include <Objects/EndObject.h>
 #include <Objects/ZombieObject.h>
 #include <Objects/BeastObject.h>
+#include <Objects/BananaObject.h>
 
 /**
 Contains the terrain and all the game objects for each level. Same instance throughout the whole game.

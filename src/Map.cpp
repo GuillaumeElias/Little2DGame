@@ -21,6 +21,7 @@ void Map::loadLevel(int nb){
         return;
     }
 
+    int totalBananasInLevel = 0;
     //read level descriptor text file
     std::ifstream txtFile(std::string(levelPathBaseOss.str() + ".txt").c_str());
     std::string line;
@@ -71,10 +72,17 @@ void Map::loadLevel(int nb){
             Item* item = new Item(gRenderer, gWindow, posX, posY, lTextureFactory, param, playerInventory, &PlayerInventory::addItem);
             item->init();
             gameObjects.push_back(item);
+        }else if(typeStr == "BANANA"){
+            BananaObject* bananaObj = new BananaObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, &gameObjects);
+            bananaObj->init();
+            gameObjects.push_back(bananaObj);
+            totalBananasInLevel++;
         }
     }
 
     levelPathBaseOss.clear();
+
+    bottomBar->setTotalBananas(totalBananasInLevel);
 
     resetLevel();
 }

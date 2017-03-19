@@ -56,6 +56,7 @@
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/Objects/BananaObject.h" />
 		<Unit filename="include/Objects/BeastObject.h" />
 		<Unit filename="include/Objects/BlobObject.h" />
 		<Unit filename="include/Objects/ElevatorObject.h" />
@@ -82,6 +83,7 @@
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Objects/BananaObject.cpp" />
 		<Unit filename="src/Objects/BeastObject.cpp" />
 		<Unit filename="src/Objects/BlobObject.cpp" />
 		<Unit filename="src/Objects/ElevatorObject.cpp" />

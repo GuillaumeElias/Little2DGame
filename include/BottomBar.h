@@ -27,11 +27,14 @@ class BottomBar : IRenderedElement
 
         void takeHit(int nb);
         void addPoints(int points);
+        void eatBanana();
         void levelCompleted();
 
         bool isPlayerDead();
         bool isLevelFinished();
+        bool areAllBananasEaten();
         void rebirth();
+        void setTotalBananas(int totalBananas);
     protected:
     private:
         TTF_Font *font;
@@ -41,7 +44,7 @@ class BottomBar : IRenderedElement
         PlayerInventory* playerInventory;
 
         LTimer redTimer;
-        int health, points;
+        int health, points, totalBananas, currentBananas;
         bool levelFinished;
        /* SDL_Color fontColor;*/
 };
