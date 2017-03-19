@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "EndObject.h"
 
 Character::Character(SDL_Renderer* renderer, SDL_Window* window, int pX, int pY, LTextureFactory* lTextFact, int characterId, const std::vector<GameObject*>* gameObjects)
 : GameObject(renderer, window, pX, pY, lTextFact), characterId(characterId), gameObjects(gameObjects){
@@ -64,6 +65,13 @@ void Character::onDialogEnd(){
     if(characterId == 1){ //Robert
         for(int i=0; i<gameObjects->size(); i++){
             gameObjects->at(i)->setDisabled(false); //enables all objects in level
+        }
+    }else if(characterId == 3){ //Jungle hater
+        for(int i=0; i<gameObjects->size(); i++){
+            EndObject * endObject = dynamic_cast<EndObject *> (gameObjects->at(i));
+            if(endObject){
+                endObject->setDeactivated(false);
+            }
         }
     }
 }

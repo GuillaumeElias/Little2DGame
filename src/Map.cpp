@@ -56,7 +56,7 @@ void Map::loadLevel(int nb){
             gameObjects.push_back(characterObj);
             characters[param] = characterObj;
         }else if(typeStr == "END"){
-            EndObject* endObj = new EndObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory);
+            EndObject* endObj = new EndObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, param);
             endObj->init();
             gameObjects.push_back(endObj);
         }else if(typeStr == "TRIGGER"){
