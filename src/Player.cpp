@@ -95,6 +95,10 @@ void Player::reinit(){
     lastVelX = 0;
     mVelY = 0;
 
+    if(inventory->hasItem(2)){
+        inventory->getItems().at(2)->setDisabled(true); //disable the super jump by default
+    }
+
     init = true;
 
     pos.x = 0;

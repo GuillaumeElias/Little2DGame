@@ -19,6 +19,7 @@ class BlobObject : public GameObject
         void onCollision();
         int move(PlayerPosition* playerPos);
         std::string getTextureName();
+        void rebirth() override;
     protected:
     private:
         BottomBar* bottomBar;

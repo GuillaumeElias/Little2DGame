@@ -35,6 +35,9 @@ class BottomBar : IRenderedElement
         bool areAllBananasEaten();
         void rebirth();
         void setTotalBananas(int totalBananas);
+        void setMaxLevelTime(int maxLevelTime);
+        void startOrResumeLevelTimer();
+        void stopLevelTimer();
     protected:
     private:
         TTF_Font *font;
@@ -43,8 +46,9 @@ class BottomBar : IRenderedElement
 
         PlayerInventory* playerInventory;
 
-        LTimer redTimer;
+        LTimer redTimer, levelTimer;
         int health, points, totalBananas, currentBananas;
+        int maxLevelTime; //in seconds
         bool levelFinished;
        /* SDL_Color fontColor;*/
 };

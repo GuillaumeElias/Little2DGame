@@ -77,6 +77,8 @@ void Map::loadLevel(int nb){
             bananaObj->init();
             gameObjects.push_back(bananaObj);
             totalBananasInLevel++;
+        }else if(typeStr == "_META_"){
+            bottomBar->setMaxLevelTime(param);
         }
     }
 

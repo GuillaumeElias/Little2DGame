@@ -85,5 +85,7 @@ void ZombieObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
 }
 
 void ZombieObject::rebirth(){
+    life = ZOMBIE_LIFE;
     posX = initPosX;
+    GameObject::rebirth();
 }

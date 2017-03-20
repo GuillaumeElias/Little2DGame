@@ -13,7 +13,7 @@ Game::Game(){
     listenKeys = true;
 
     //initialize game state
-    gameState = MENU/*PLAYING*/; //TODO put back
+    gameState = MENU;
 }
 
 Game::~Game()
@@ -102,6 +102,7 @@ void Game::run(){
                     if(dialogPlayer->isFinished()){ //if dialog is finished
                         gameState = PLAYING;
                         listenKeys = true;
+                        bottomBar->startOrResumeLevelTimer();
                         break;
                     }
 
@@ -167,6 +168,7 @@ void Game::run(){
 
                     }else if(bottomBar->isLevelFinished()){ //if level finished
                         listenKeys = false;
+                        bottomBar->stopLevelTimer();
                         player->reinit(); //reset player position
                         bottomBar->rebirth(); //reset bottom bar
                         map->unloadLevel();

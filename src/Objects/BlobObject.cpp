@@ -54,3 +54,8 @@ int BlobObject::onHit(BulletType bulletType){
         return 0;
     }
 }
+
+void BlobObject::rebirth(){
+    life = BLOB_LIFE;
+    GameObject::rebirth();
+}

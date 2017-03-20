@@ -24,6 +24,7 @@ BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
     points = 0;
     currentBananas = 0;
     totalBananas = 0;
+    maxLevelTime = -1;
 }
 
 BottomBar::~BottomBar()
@@ -47,6 +48,10 @@ void BottomBar::eatBanana(){
 }
 
 bool BottomBar::isPlayerDead(){
+    if(maxLevelTime > 0 && levelTimer.getTicks() / 1000 > maxLevelTime){
+        return true;
+    }
+
     return health <= 0;
 }
 
@@ -59,12 +64,30 @@ bool BottomBar::areAllBananasEaten(){
 }
 
 void BottomBar::rebirth(){
+    stopLevelTimer();
     levelFinished = false;
     health = PLAYER_INIT_HEALTH;
 }
 
 void BottomBar::setTotalBananas(int totalBananas){
     this->totalBananas = totalBananas;
+}
+
+void BottomBar::setMaxLevelTime(int maxLvlTime){
+    this->maxLevelTime = maxLvlTime;
+}
+
+void BottomBar::startOrResumeLevelTimer()
+{
+    if(maxLevelTime > 0){
+        if(!levelTimer.isStarted() || levelTimer.isPaused()){
+            levelTimer.start();
+        }
+    }
+}
+
+void BottomBar::stopLevelTimer(){
+    levelTimer.stop();
 }
 
 void BottomBar::levelCompleted(){
@@ -88,6 +111,13 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
     messageOss << "HEALTH: " << health << "   POINTS: " << points << "    ITEMS:";
     if(totalBananas > 0){
         messageOss << "             BANANAS: " << currentBananas << "/" << totalBananas;
+    }else if(maxLevelTime > 0){
+        int seconds = levelTimer.getTicks() / 1000;
+        if(seconds > maxLevelTime){
+            messageOss << "             TOO LATE FATTY!";
+        }else{
+            messageOss << "             DEAD IN: " << (maxLevelTime - seconds);
+        }
     }
     std::string message = messageOss.str();
     messageOss.str("");

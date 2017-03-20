@@ -114,7 +114,9 @@ void BeastObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLeve
 }
 
 void BeastObject::rebirth(){
+    life = BEAST_LIFE;
     posX = initPosX;
     posY = initPosY;
     animTimer.start();
+    GameObject::rebirth();
 }
