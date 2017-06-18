@@ -69,6 +69,7 @@ void BottomBar::rebirth(){
     levelFinished = false;
     health = PLAYER_INIT_HEALTH;
     pazookVictories = 0;
+    currentBananas = 0;
 }
 
 void BottomBar::setTotalBananas(int totalBananas){

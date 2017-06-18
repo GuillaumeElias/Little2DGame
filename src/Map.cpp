@@ -12,6 +12,7 @@ void Map::loadLevel(int nb){
 
     //build and load level texture
     gLevelTexture = new LMapTexture(gRenderer, gWindow);
+    bottomBar->setMaxLevelTime(0);
 
     std::ostringstream levelPathBaseOss;
     levelPathBaseOss << "levels/level" << nb;
