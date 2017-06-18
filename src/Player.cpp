@@ -126,7 +126,7 @@ void Player::handleEvent(SDL_Event& e){
             case SDLK_j:
                 if(inventory->hasItem(2)){ //item 2 = super jump
                     superJump = !superJump;
-                    inventory->getItems().at(2)->setDisabled(!superJump); //disable/enable in inventory
+                    //inventory->getItems().at(2)->setDisabled(!superJump); //disable/enable in inventory
                     std::cout << (superJump?"super jump activated":"super jump disabled") << std::endl;
                 }
                 break;

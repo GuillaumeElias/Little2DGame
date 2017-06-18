@@ -65,8 +65,8 @@ void Map::loadLevel(int nb){
             triggerObj->init();
             gameObjects.push_back(triggerObj);
 
-            if(param >= 100 && characters.count(param - TRIGGER_CHARACTER_PARAM_MASK) > 0){
-                triggerObj->setCharacter(characters[param - TRIGGER_CHARACTER_PARAM_MASK]);
+            if(param >= 100 && characters.count(param - TRIGGER_DIALOG_PARAM_MASK) > 0){
+                triggerObj->setCharacter(characters[param - TRIGGER_DIALOG_PARAM_MASK]);
             }
         }else if(typeStr == "ITEM"){
             Item* item = new Item(gRenderer, gWindow, posX, posY, lTextureFactory, param, playerInventory, &PlayerInventory::addItem);

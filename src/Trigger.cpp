@@ -51,3 +51,12 @@ void Trigger::setCharacter(Character* character){
     this->character = character;
     height = character->getHeight(); //set same height as character's
 }
+
+void Trigger::reenable(){
+    triggered = false;
+    hit = false;
+}
+
+int Trigger::getTriggerId(){
+    return triggerId;
+}

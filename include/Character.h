@@ -31,6 +31,7 @@ class Character : public GameObject
 
         SDL_Rect clip;
         int currentSpriteNb = 0;
+        bool pazookPlayer;
         LTimer moveTimer;
 
 };

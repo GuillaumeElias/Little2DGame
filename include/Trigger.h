@@ -23,6 +23,8 @@ class Trigger : public GameObject
         virtual std::string getTextureName();
 
         void setCharacter(Character* character);
+        void reenable(); //(make sure player is outside!)
+        int getTriggerId();
     protected:
     private:
         int triggerId;

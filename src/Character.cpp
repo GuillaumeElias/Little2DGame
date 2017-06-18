@@ -5,6 +5,8 @@ Character::Character(SDL_Renderer* renderer, SDL_Window* window, int pX, int pY,
 : GameObject(renderer, window, pX, pY, lTextFact), characterId(characterId), gameObjects(gameObjects){
     //define textureName based on character id
     textureName << "characters/" << characterId << ".png";
+
+    pazookPlayer = characterId == 4 || characterId == 5 || characterId == 6;
 }
 
 void Character::init(){
@@ -28,7 +30,14 @@ void Character::renderInDialog(SDL_Renderer* gRenderer){
     move(NULL); //makes character move with no position (because not in game)
     clip.x = currentSpriteNb * clip.w;
 
-    gTexture->render( DIALOG_LEFT_MARGIN, DIALOG_CHARACTER_TOP_MARGIN - height/2, &clip);
+    int marginTop;
+    if(pazookPlayer){
+        marginTop = PAZOOK_CHARACTER_TOP_MARGIN;
+    }else{
+        marginTop = DIALOG_CHARACTER_TOP_MARGIN - height/2;
+    }
+
+    gTexture->render( DIALOG_LEFT_MARGIN, marginTop, &clip);
 }
 
 void Character::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){

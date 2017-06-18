@@ -13,7 +13,7 @@ static const int FRAME_TIME = 35;
 
 static const double WORLD_FALL_ACC = 0.5; //fall velocity
 
-static const int DIALOG_LEFT_MARGIN = 80;
+static const int DIALOG_LEFT_MARGIN = 60;
 static const long DIALOG_TIME_LETTER = /*50*/50;
 static const long DIALOG_TIME_SENTENCE = /*2000*/500;
 static const int DIALOG_CHARACTER_TOP_MARGIN = SCREEN_HEIGHT / 3 + 10;
@@ -28,7 +28,8 @@ static const int END_OBJECT_ANIMATION_FRAME_TIME = 300;
 
 static const int TRIGGER_WIDTH = 10;
 static const int TRIGGER_DEFAULT_HEIGHT = 100;
-static const int TRIGGER_CHARACTER_PARAM_MASK = 100;
+static const int TRIGGER_DIALOG_PARAM_MASK = 100;
+static const int TRIGGER_PAZOOK_PARAM_MASK = 200;
 
 static const int PLAYER_INIT_SPEED = 10;
 static const int PLAYER_WALK_FRAME_TIME = 80;
@@ -65,6 +66,16 @@ static const int ITEM_IN_INVENTORY_MARGIN_LEFT = 430;
 static const int BLOB_TOUCH_RESET = 1000;
 static const double ELEVATOR_DEFAULT_ALTITUDE = 100;
 static const double BOTTOM_BAR_RED_TIME = 200;
+
+static const int PAZOOK_NUMBER_MAX = 3;
+static const int PAZOOK_CHARACTER_TOP_MARGIN = 60;
+static const int PAZOOK_DIALOG_TOP_MARGIN = 80;
+static const int PAZOOK_CARDS_MARGIN_TOP = 250;
+static const int PAZOOK_CARD1_X = 100;
+static const int PAZOOK_CARD2_X = 320;
+static const int PAZOOK_CARD3_X = 540;
+static const int PAZOOK_WINNING_POINTS = 10;
+static const int PAZOOK_NB_WINNING_NEEDED = 2;
 
 struct Position{
     int x, y;

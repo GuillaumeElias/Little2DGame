@@ -24,6 +24,7 @@ BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
     points = 0;
     currentBananas = 0;
     totalBananas = 0;
+    pazookVictories = 0;
     maxLevelTime = -1;
 }
 
@@ -67,6 +68,7 @@ void BottomBar::rebirth(){
     stopLevelTimer();
     levelFinished = false;
     health = PLAYER_INIT_HEALTH;
+    pazookVictories = 0;
 }
 
 void BottomBar::setTotalBananas(int totalBananas){
@@ -146,4 +148,13 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
 
         item->renderInInventory(ITEM_IN_INVENTORY_MARGIN_LEFT + it->first * ITEM_IN_INVENTORY_WIDTH, ITEM_IN_INVENTORY_MARGIN_TOP/(item->getHeight()/10));
     }
+}
+
+void BottomBar::incrementPazookVictory(){
+    pazookVictories++;
+    addPoints(PAZOOK_WINNING_POINTS);
+}
+
+int BottomBar::getPazookVictories(){
+    return pazookVictories;
 }

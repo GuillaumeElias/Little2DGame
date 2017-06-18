@@ -17,6 +17,8 @@ DialogPlayer::DialogPlayer(SDL_Renderer* renderer, SDL_Window* window) : gRender
     textViewport.y = SCREEN_HEIGHT / 3;
     textViewport.w = SCREEN_WIDTH ;
     textViewport.h = SCREEN_HEIGHT - SCREEN_HEIGHT / 3;
+
+    allowDisplayNextSentence = true;
 }
 
 DialogPlayer::~DialogPlayer(){
@@ -109,10 +111,8 @@ void DialogPlayer::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
     std::string line = lines.at(currentLine);
 
     if(sentenceTimer.isStarted()){ //if at the sentence out waiting timer
-        if(sentenceTimer.getTicks() > DIALOG_TIME_SENTENCE){
-            sentenceTimer.stop();
-            currentLetter = 0;
-            currentLine++;          //GO TO NEXT LINE
+        if(allowDisplayNextSentence && sentenceTimer.getTicks() > DIALOG_TIME_SENTENCE){
+            jumpToNextLine();
             return;
         }
     }else if(currentLetter >= line.size()){ //if last letter displayed
@@ -155,4 +155,14 @@ void DialogPlayer::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
 
 bool DialogPlayer::isFinished(){
     return finished;
+}
+
+void DialogPlayer::jumpToNextLine(){
+    sentenceTimer.stop();
+    currentLetter = 0;
+    currentLine++;
+}
+
+int DialogPlayer::getNumberOfLines(){
+    return lines.size();
 }

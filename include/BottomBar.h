@@ -36,6 +36,8 @@ class BottomBar : IRenderedElement
         void rebirth();
         void setTotalBananas(int totalBananas);
         void setMaxLevelTime(int maxLevelTime);
+        void incrementPazookVictory();
+        int getPazookVictories();
         void startOrResumeLevelTimer();
         void stopLevelTimer();
     protected:
@@ -47,7 +49,7 @@ class BottomBar : IRenderedElement
         PlayerInventory* playerInventory;
 
         LTimer redTimer, levelTimer;
-        int health, points, totalBananas, currentBananas;
+        int health, points, totalBananas, currentBananas, pazookVictories;
         int maxLevelTime; //in seconds
         bool levelFinished;
        /* SDL_Color fontColor;*/

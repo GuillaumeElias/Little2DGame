@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
 					<Add directory="include/Objects" />
@@ -62,6 +63,7 @@
 		<Unit filename="include/Objects/ElevatorObject.h" />
 		<Unit filename="include/Objects/EndObject.h" />
 		<Unit filename="include/Objects/ZombieObject.h" />
+		<Unit filename="include/PazookEngine.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/PlayerInventory.h" />
 		<Unit filename="include/Trigger.h" />
@@ -89,6 +91,7 @@
 		<Unit filename="src/Objects/ElevatorObject.cpp" />
 		<Unit filename="src/Objects/EndObject.cpp" />
 		<Unit filename="src/Objects/ZombieObject.cpp" />
+		<Unit filename="src/PazookEngine.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PlayerInventory.cpp" />
 		<Unit filename="src/Trigger.cpp" />
