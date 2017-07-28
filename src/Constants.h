@@ -77,6 +77,12 @@ static const int PAZOOK_CARD3_X = 540;
 static const int PAZOOK_WINNING_POINTS = 10;
 static const int PAZOOK_NB_WINNING_NEEDED = 2;
 
+static const int ZOMBIE_SPAWNER_ANIMATION_FRAMES = 3;
+static const int ZOMBIE_SPAWNER_ANIMATION_TIME = 200;
+static const int ZOMBIE_SPAWNER_RATE = 10000;
+static const int ZOMBIE_SPAWNER_MAX_LIVE_SPAWNED_ZOMBIES = 3;
+
+
 struct Position{
     int x, y;
 };

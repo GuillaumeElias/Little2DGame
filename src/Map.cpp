@@ -78,6 +78,10 @@ void Map::loadLevel(int nb){
             bananaObj->init();
             gameObjects.push_back(bananaObj);
             totalBananasInLevel++;
+        }else if(typeStr == "ZOMBIE_SPAWNER"){
+            ZombieSpawner* zombieSpawner = new ZombieSpawner(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, this, param);
+            zombieSpawner->init();
+            gameObjects.push_back(zombieSpawner);
         }else if(typeStr == "_META_"){
             bottomBar->setMaxLevelTime(param);
         }
@@ -232,6 +236,18 @@ Character* Map::getCharacter(int characterId){
    }else{
         return NULL;
    }
+}
+
+int Map::countLiveZombiesForSpawner(ZombieSpawner * zombieSpawner) const {
+    int liveZombies = 0;
+    for(GameObject * gameObject : gameObjects){
+        if(ZombieObject * zombieObject = dynamic_cast<ZombieObject *> (gameObject)){
+            if(!zombieObject->isDead() && zombieObject->getSpawner() == zombieSpawner){
+                liveZombies++;
+            }
+        }
+    }
+    return liveZombies;
 }
 
 BottomBar* const Map::getBottomBar(){

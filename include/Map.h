@@ -20,6 +20,7 @@
 #include <Objects/ZombieObject.h>
 #include <Objects/BeastObject.h>
 #include <Objects/BananaObject.h>
+#include <Objects/ZombieSpawner.h>
 
 /**
 Contains the terrain and all the game objects for each level. Same instance throughout the whole game.
@@ -51,6 +52,8 @@ class Map : IRenderedElement
         bool checkCollision(const SDL_Rect &collider, bool terrainOnly); //(terrainOnly means ignore the objects)
 
         Character* getCharacter(int characterId);
+
+        int countLiveZombiesForSpawner(ZombieSpawner * zombieSpawner) const;
     protected:
     private:
         SDL_Window* gWindow;

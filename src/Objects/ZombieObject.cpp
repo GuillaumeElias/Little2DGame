@@ -1,7 +1,7 @@
 #include "Objects/ZombieObject.h"
 
 ZombieObject::ZombieObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact, int distance)
-: GameObject(renderer, window, pX, pY, lTextFact), initPosX(pX), distance(distance), bottomBar(bottomBar)
+: GameObject(renderer, window, pX, pY, lTextFact), initPosX(pX), distance(distance), bottomBar(bottomBar), spawner(nullptr)
 {
 
 }
@@ -88,4 +88,16 @@ void ZombieObject::rebirth(){
     life = ZOMBIE_LIFE;
     posX = initPosX;
     GameObject::rebirth();
+}
+
+void ZombieObject::setDirection(Direction direction){
+    this->direction = direction;
+}
+
+ZombieSpawner * ZombieObject::getSpawner(){
+    return spawner;
+}
+
+void ZombieObject::setSpawner(ZombieSpawner * zombieSpawner){
+    this->spawner = zombieSpawner;
 }
