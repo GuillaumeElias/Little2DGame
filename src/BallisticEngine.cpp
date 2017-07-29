@@ -30,7 +30,7 @@ void BallisticEngine::move(Map* map){
     collider.w = 1;
     collider.h = 1;
 
-    std::set<int> bulletsToErase;
+    std::set<BulletPosition> bulletsToErase;
 
     for(int i=0; i<bullets.size(); i++){ //for each active bullet
         collider.y = bullets[i].y;
@@ -44,7 +44,7 @@ void BallisticEngine::move(Map* map){
                 if(bullets[i].x >= map->getLevelWidth() || map->checkCollision(collider, true)){
                     if(bulletMove < 2){ //if bulletMove can not be smaller
                         //remove bullet and exit loop
-                        bulletsToErase.insert(i);
+                        bulletsToErase.insert(bullets[i]);
                         break;
                     }else{ //reduce bulletMove and try again
                         bulletMove /= 2;
@@ -62,7 +62,7 @@ void BallisticEngine::move(Map* map){
 
                 if(bullets[i].x <= 0 || map->checkCollision(collider, true)){
                     if(bulletMove < 2){
-                        bulletsToErase.insert(i);
+                        bulletsToErase.insert(bullets[i]);
                         break;
                     }else{
                         bulletMove /= 2;
@@ -83,7 +83,7 @@ void BallisticEngine::move(Map* map){
         std::vector<GameObject*>* gameObjects = map->getGameObjects();
         for(int j=0; j<gameObjects->size(); j++){
             if(gameObjects->at(j)->checkCollision(collider, true)){
-                bulletsToErase.insert(i);
+                bulletsToErase.insert(bullets[i]);
                 earnedPoints += gameObjects->at(j)->onHit(PLAYER_BULLET_1); //TODO get bullet type from bullet
             }
         }
@@ -94,8 +94,13 @@ void BallisticEngine::move(Map* map){
 
     }
 
-    for(int index : bulletsToErase){
-        bullets.erase(bullets.begin() + index);
+    for(BulletPosition bulletToErase : bulletsToErase){
+        for(int i=0; i<bullets.size(); i++){
+            if(bullets[i] == bulletToErase){
+                bullets.erase(bullets.begin() + i);
+                break;
+            }
+        }
     }
 
 }

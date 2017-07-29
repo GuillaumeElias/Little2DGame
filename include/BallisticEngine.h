@@ -6,6 +6,8 @@
 
 struct BulletPosition : Position{
     Direction direction;
+    bool operator<(const BulletPosition &other) const { return x < other.x; }
+    bool operator==(const BulletPosition &other) const { return x == other.x && y == other.y; }
 };
 
 /**
