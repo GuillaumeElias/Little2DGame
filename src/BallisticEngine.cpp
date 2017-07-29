@@ -1,4 +1,5 @@
 #include "BallisticEngine.h"
+#include <set>
 
 BallisticEngine::BallisticEngine(SDL_Renderer* gRenderer){
     bulletTexture = new LTexture(gRenderer, true);
@@ -29,7 +30,9 @@ void BallisticEngine::move(Map* map){
     collider.w = 1;
     collider.h = 1;
 
-     for(int i=0; i<bullets.size(); i++){ //for each active bullet
+    std::set<int> bulletsToErase;
+
+    for(int i=0; i<bullets.size(); i++){ //for each active bullet
         collider.y = bullets[i].y;
 
         int bulletMove = BULLET_DISPLACEMENT; //initialize bullet move
@@ -41,7 +44,7 @@ void BallisticEngine::move(Map* map){
                 if(bullets[i].x >= map->getLevelWidth() || map->checkCollision(collider, true)){
                     if(bulletMove < 2){ //if bulletMove can not be smaller
                         //remove bullet and exit loop
-                        bullets.erase(bullets.begin() + i);
+                        bulletsToErase.insert(i);
                         break;
                     }else{ //reduce bulletMove and try again
                         bulletMove /= 2;
@@ -59,7 +62,7 @@ void BallisticEngine::move(Map* map){
 
                 if(bullets[i].x <= 0 || map->checkCollision(collider, true)){
                     if(bulletMove < 2){
-                        bullets.erase(bullets.begin() + i);
+                        bulletsToErase.insert(i);
                         break;
                     }else{
                         bulletMove /= 2;
@@ -80,7 +83,7 @@ void BallisticEngine::move(Map* map){
         std::vector<GameObject*>* gameObjects = map->getGameObjects();
         for(int j=0; j<gameObjects->size(); j++){
             if(gameObjects->at(j)->checkCollision(collider, true)){
-                bullets.erase(bullets.begin() + i);
+                bulletsToErase.insert(i);
                 earnedPoints += gameObjects->at(j)->onHit(PLAYER_BULLET_1); //TODO get bullet type from bullet
             }
         }
@@ -89,7 +92,12 @@ void BallisticEngine::move(Map* map){
             map->getBottomBar()->addPoints(earnedPoints);
         }
 
-     }
+    }
+
+    for(int index : bulletsToErase){
+        bullets.erase(bullets.begin() + index);
+    }
+
 }
 
 void BallisticEngine::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){

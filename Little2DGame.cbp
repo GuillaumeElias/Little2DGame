@@ -63,6 +63,7 @@
 		<Unit filename="include/Objects/ElevatorObject.h" />
 		<Unit filename="include/Objects/EndObject.h" />
 		<Unit filename="include/Objects/ZombieObject.h" />
+		<Unit filename="include/Objects/ZombieSpawner.h" />
 		<Unit filename="include/PazookEngine.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/PlayerInventory.h" />
@@ -91,6 +92,7 @@
 		<Unit filename="src/Objects/ElevatorObject.cpp" />
 		<Unit filename="src/Objects/EndObject.cpp" />
 		<Unit filename="src/Objects/ZombieObject.cpp" />
+		<Unit filename="src/Objects/ZombieSpawner.cpp" />
 		<Unit filename="src/PazookEngine.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PlayerInventory.cpp" />
