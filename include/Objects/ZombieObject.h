@@ -29,6 +29,7 @@ class ZombieObject : public GameObject
 
         ZombieSpawner * getSpawner();
         void setSpawner(ZombieSpawner * zombieSpawner);
+        void setDisplacement(int displacement);
 
     protected:
     private:
@@ -37,6 +38,7 @@ class ZombieObject : public GameObject
         LTimer hitTimer;
         int life;
         int distance;
+        int displacement;
         Direction direction;
 
         SDL_Rect clip;

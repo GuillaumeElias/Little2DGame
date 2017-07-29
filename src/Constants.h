@@ -49,6 +49,7 @@ static const int BLOB_LIFE = 2;
 
 static const int ZOMBIE_LIFE = 4;
 static const int ZOMBIE_WIDTH = 28;
+static const int ZOMBIE_INIT_DISPLACEMENT = 1;
 
 static const int BEAST_LIFE = 5;
 static const int BEAST_WIDTH = 42;

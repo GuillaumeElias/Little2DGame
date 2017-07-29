@@ -14,6 +14,7 @@ void ZombieObject::init(){
     direction = LEFT;
 
     width = ZOMBIE_WIDTH;
+    displacement = ZOMBIE_INIT_DISPLACEMENT;
 
     clip.y = 0;
     clip.w = width;
@@ -36,13 +37,13 @@ int ZombieObject::move(PlayerPosition* playerPos){
         if(initPosX - posX > distance){ //if exceeded the distance
             direction = RIGHT;
         }else{
-            posX--;
+            posX -= displacement;
         }
     }else{ //RIGHT
         if(posX - initPosX > distance){
             direction = LEFT;
         }else{
-            posX++;
+            posX += displacement;
         }
     }
 
@@ -100,4 +101,8 @@ ZombieSpawner * ZombieObject::getSpawner(){
 
 void ZombieObject::setSpawner(ZombieSpawner * zombieSpawner){
     this->spawner = zombieSpawner;
+}
+
+void ZombieObject::setDisplacement(int displacement){
+    this->displacement = displacement;
 }

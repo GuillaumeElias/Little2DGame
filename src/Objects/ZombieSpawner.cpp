@@ -70,6 +70,7 @@ void ZombieSpawner::spawnZombie(){
     zombie->init();
     zombie->setDirection(direction);
     zombie->setSpawner(this);
+    zombie->setDisplacement(2);
     map->getGameObjects()->push_back(zombie);
 }
 
