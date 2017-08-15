@@ -8,8 +8,10 @@
 
 static const int SCREEN_WIDTH = 880;
 static const int MARGIN_BOTTOM = 35;
-static const int SCREEN_HEIGHT = 600 + MARGIN_BOTTOM;
+static const int LEVEL_HEIGHT = 600;
+static const int SCREEN_HEIGHT = LEVEL_HEIGHT + MARGIN_BOTTOM;
 static const int FRAME_TIME = 35;
+static const int NB_LEVELS = 9;
 
 static const double WORLD_FALL_ACC = 0.5; //fall velocity
 
@@ -58,11 +60,14 @@ static const int BEAST_ANIM_FRAME_TIME = 300;
 static const int BEAST_ANIM_NB_FRAMES = 2;
 
 static const int BULLET_DISPLACEMENT = 20;
-static const int BULLET_TOP_MARGIN = 18;
+static const int BULLET_PLAYER_TOP_MARGIN = 18;
+static const int BULLET_BOSS_TOP_MARGIN = 116;
+static const int BULLET_COLL_MARGIN_Y = 3;
+static const int ENEMY_BULLET_DAMAGE = 1;
 
 static const int ITEM_IN_INVENTORY_WIDTH = 50;
 static const int ITEM_IN_INVENTORY_MARGIN_TOP = 5;
-static const int ITEM_IN_INVENTORY_MARGIN_LEFT = 430;
+static const int ITEM_IN_INVENTORY_MARGIN_LEFT = 432;
 
 static const int BLOB_TOUCH_RESET = 1000;
 static const double ELEVATOR_DEFAULT_ALTITUDE = 100;
@@ -83,6 +88,16 @@ static const int ZOMBIE_SPAWNER_ANIMATION_TIME = 200;
 static const int ZOMBIE_SPAWNER_RATE = 10000;
 static const int ZOMBIE_SPAWNER_MAX_LIVE_SPAWNED_ZOMBIES = 3;
 
+static const int BOSS_NB_FRAMES = 2;
+static const int BOSS_ANIM_FRAME_TIME = 300;
+static const int BOSS_LIFE = 10;
+static const int BOSS_TOUCH_RESET = 800;
+static const int BOSS_DESCENT_SPEED = 2;
+static const int BOSS_ASCENT_SPEED = 5;
+static const int BOSS_IDLE_TIME = 1000;
+static const int BOSS_ATTACK_TIME = 1210;
+static const int BOSS_FIRE_TIME = BOSS_ANIM_FRAME_TIME;
+static const int BOSS_VULNERABLE_TIME = 1600;
 
 struct Position{
     int x, y;

@@ -100,10 +100,9 @@ void Player::reinit(){
         superJump = false;
     }
 
-    init = true;
+    initPos();
 
-    pos.x = 0;
-    pos.y = SCREEN_HEIGHT - MARGIN_BOTTOM - PLAYER_HEIGHT - 1 - 15;
+    init = true;
 }
 
 void Player::handleEvent(SDL_Event& e){
@@ -134,7 +133,9 @@ void Player::handleEvent(SDL_Event& e){
             case SDLK_RIGHT: mVelX = 10; break;
             case SDLK_f:
                 if(inventory->hasItem(1) && !fireTimer.isStarted()){ //item 1 = basic gun
-                    ballisticEngine->fireBullet(pos, facingLeft() ? LEFT : RIGHT);
+                    Position bulletPosition = pos;
+                    bulletPosition.y += BULLET_PLAYER_TOP_MARGIN;
+                    ballisticEngine->fireBullet(bulletPosition, facingLeft() ? LEFT : RIGHT);
                     fireTimer.start();
                 }
                 break;

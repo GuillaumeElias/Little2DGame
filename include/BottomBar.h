@@ -40,6 +40,7 @@ class BottomBar : IRenderedElement
         int getPazookVictories();
         void startOrResumeLevelTimer();
         void stopLevelTimer();
+        void setBossLife(int bossLife); //-1 => no boss
     protected:
     private:
         TTF_Font *font;
@@ -49,7 +50,7 @@ class BottomBar : IRenderedElement
         PlayerInventory* playerInventory;
 
         LTimer redTimer, levelTimer;
-        int health, points, totalBananas, currentBananas, pazookVictories;
+        int health, points, totalBananas, currentBananas, pazookVictories, bossLife;
         int maxLevelTime; //in seconds
         bool levelFinished;
        /* SDL_Color fontColor;*/

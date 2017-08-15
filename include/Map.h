@@ -21,6 +21,9 @@
 #include <Objects/BeastObject.h>
 #include <Objects/BananaObject.h>
 #include <Objects/ZombieSpawner.h>
+#include <Objects/BossObject.h>
+
+class BallisticEngine;
 
 /**
 Contains the terrain and all the game objects for each level. Same instance throughout the whole game.
@@ -28,7 +31,7 @@ Contains the terrain and all the game objects for each level. Same instance thro
 class Map : IRenderedElement
 {
     public:
-        Map(SDL_Renderer* gRenderer, SDL_Window* gWindow, BottomBar* bottomBar, LTextureFactory* lTextureFactory, PlayerInventory* playerInventory);
+        Map(SDL_Renderer* gRenderer, SDL_Window* gWindow, BottomBar* bottomBar, LTextureFactory* lTextureFactory, PlayerInventory* playerInventory, BallisticEngine* bulletEngine);
         virtual ~Map();
 
         void loadLevel(int levelNb); //loads a level
@@ -54,6 +57,8 @@ class Map : IRenderedElement
         Character* getCharacter(int characterId);
 
         int countLiveZombiesForSpawner(ZombieSpawner * zombieSpawner) const;
+
+        void setPlayerPosition(PlayerPosition * playerPos);
     protected:
     private:
         SDL_Window* gWindow;
@@ -61,6 +66,8 @@ class Map : IRenderedElement
         LTextureFactory* lTextureFactory;
         BottomBar* bottomBar;
         PlayerInventory* playerInventory;
+        BallisticEngine* ballisticeEngine;
+        PlayerPosition* playerPosition;
 
         LMapTexture* gLevelTexture;
         SDL_Rect visibleLevel;

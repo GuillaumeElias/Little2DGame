@@ -39,10 +39,12 @@ void Game::run(){
 
         PlayerInventory* playerInventory = new PlayerInventory();
         BottomBar* bottomBar = new BottomBar(playerInventory);
-        Map* map = new Map(gRenderer, gWindow, bottomBar, lTextureFactory, playerInventory);
-        BallisticEngine* ballisticEngine = new BallisticEngine(gRenderer);
+        BallisticEngine* ballisticEngine = new BallisticEngine(gRenderer, bottomBar);
+        Map* map = new Map(gRenderer, gWindow, bottomBar, lTextureFactory, playerInventory, ballisticEngine);
         PazookEngine* pazookEngine = new PazookEngine(gRenderer, gWindow, lTextureFactory);
         Player* player = new Player(gRenderer, gWindow, ballisticEngine, playerInventory);
+        ballisticEngine->setPlayerPosition(player->getPos());
+        map->setPlayerPosition(player->getPos());
 
         //load first level
         map->loadLevel(0);
@@ -101,9 +103,17 @@ void Game::run(){
                     SDL_RenderPresent( gRenderer );
 
                     if(dialogPlayer->isFinished()){ //if dialog is finished
-                        gameState = PLAYING;
-                        listenKeys = true;
-                        bottomBar->startOrResumeLevelTimer();
+                        if(level < NB_LEVELS){
+                            gameState = PLAYING;
+                            listenKeys = true;
+                            bottomBar->startOrResumeLevelTimer();
+                        }else{
+                            gameState = MENU; //if game is finished
+                            level = -1;
+                            map->loadLevel(0);
+                            SDL_RenderSetViewport( gRenderer, NULL );
+                        }
+
                         break;
                     }
 
@@ -172,6 +182,7 @@ void Game::run(){
                             if(player->hasDied()){ //death animation finished
                                 player->reinit();
                                 map->resetLevel();
+                                ballisticEngine->clearBullets();
                                 bottomBar->rebirth();
                                 dialogPlayer->printGameOver();
                                 gameState = DIALOG;
@@ -188,10 +199,17 @@ void Game::run(){
                         listenKeys = false;
                         bottomBar->stopLevelTimer();
                         player->reinit(); //reset player position
+                        ballisticEngine->clearBullets();
                         bottomBar->rebirth(); //reset bottom bar
                         map->unloadLevel();
-                        dialogPlayer->loadLevel(level); //load new level dialog
-                        map->loadLevel(++level); //load to next level
+
+                        dialogPlayer->loadLevel(level); //load end level dialog
+                        ++level;
+
+                        if(level < NB_LEVELS){ // if game not finished
+                            map->loadLevel(level); //load next level
+                        }
+
                         gameState = DIALOG; //do to dialog mode
 
                         continue;

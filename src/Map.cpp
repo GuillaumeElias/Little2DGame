@@ -1,9 +1,12 @@
 #include "Map.h"
+#include "BallisticEngine.h"
 
 bool isWall(Uint32 pixel);
 
-Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LTextureFactory* lTextureFactory, PlayerInventory* playerInventory)
-: gRenderer(renderer), gWindow(window), bottomBar(bottomBar), lTextureFactory(lTextureFactory), playerInventory(playerInventory){
+Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LTextureFactory* lTextureFactory,
+          PlayerInventory* playerInventory, BallisticEngine* bulletEngine)
+: gRenderer(renderer), gWindow(window), bottomBar(bottomBar), lTextureFactory(lTextureFactory),
+ playerInventory(playerInventory), ballisticeEngine(bulletEngine) {
 
     //loadLevel(0);
 }
@@ -82,6 +85,10 @@ void Map::loadLevel(int nb){
             ZombieSpawner* zombieSpawner = new ZombieSpawner(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, this, param);
             zombieSpawner->init();
             gameObjects.push_back(zombieSpawner);
+        }else if(typeStr == "BOSS"){
+            BossObject* boss = new BossObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, ballisticeEngine, playerPosition, this);
+            boss->init();
+            gameObjects.push_back(boss);
         }else if(typeStr == "_META_"){
             bottomBar->setMaxLevelTime(param);
         }
@@ -252,6 +259,10 @@ int Map::countLiveZombiesForSpawner(ZombieSpawner * zombieSpawner) const {
 
 BottomBar* const Map::getBottomBar(){
     return bottomBar;
+}
+
+void Map::setPlayerPosition(PlayerPosition * playerPos){
+    playerPosition = playerPos;
 }
 
 Map::~Map(){

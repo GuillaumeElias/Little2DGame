@@ -336,7 +336,7 @@
 	<Player.h>
 	"src/Constants.h"
 
-1501267958 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
+1502810350 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
 	"Game.h"
 
 1497463846 c:\users\guillaume\documents\cppstuff\little2dgame\include\game.h
@@ -371,7 +371,7 @@
 1436723438 c:\users\guillaume\documents\cppstuff\little2dgame\include\ltimer.h
 	<SDL.h>
 
-1501267342 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
+1502810411 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
 	"Player.h"
 
 1461506265 c:\users\guillaume\documents\cppstuff\little2dgame\include\player.h
@@ -386,9 +386,9 @@
 	<PlayerInventory.h>
 	<../src/Constants.h>
 
-1501269377 c:\users\guillaume\documents\cppstuff\little2dgame\src\constants.h
+1502811227 c:\users\guillaume\documents\cppstuff\little2dgame\src\constants.h
 
-1497808206 c:\users\guillaume\documents\cppstuff\little2dgame\include\bottombar.h
+1502798858 c:\users\guillaume\documents\cppstuff\little2dgame\include\bottombar.h
 	<string>
 	<sstream>
 	<Utils/LTexture.h>
@@ -404,16 +404,17 @@
 	"begin_code.h"
 	"close_code.h"
 
-1497820179 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\bottombar.cpp
+1502799008 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\bottombar.cpp
 	"BottomBar.h"
 
 1452605069 c:\users\guillaume\documents\cppstuff\little2dgame\include\irenderedelement.h
 	<SDL.h>
 
-1501268618 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
+1502806727 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
 	"Map.h"
+	"BallisticEngine.h"
 
-1501259210 c:\users\guillaume\documents\cppstuff\little2dgame\include\map.h
+1502100759 c:\users\guillaume\documents\cppstuff\little2dgame\include\map.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -435,6 +436,7 @@
 	<Objects/BeastObject.h>
 	<Objects/BananaObject.h>
 	<Objects/ZombieSpawner.h>
+	<Objects/BossObject.h>
 
 1439136520 c:\users\guillaume\documents\cppstuff\little2dgame\include\imap.h
 	<SDL.h>
@@ -520,12 +522,14 @@
 	<GameObject.h>
 	<Character.h>
 
-1463507504 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
+1502733951 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
 	"BallisticEngine.h"
+	<set>
 
-1465128788 c:\users\guillaume\documents\cppstuff\little2dgame\include\ballisticengine.h
-	<Utils/IRenderedElement.h>
-	<Map.h>
+1502733773 c:\users\guillaume\documents\cppstuff\little2dgame\include\ballisticengine.h
+	"Utils/IRenderedElement.h"
+	"Map.h"
+	"BottomBar.h"
 
 1452698989 c:\users\guillaume\documents\cppstuff\little2dgame\include\zombieobject.h
 	<GameObject.h>
@@ -566,7 +570,7 @@
 	<GameObject.h>
 	<BottomBar.h>
 
-1501259111 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombieobject.h
+1501331544 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombieobject.h
 	<GameObject.h>
 	<BottomBar.h>
 	<ZombieSpawner.h>
@@ -589,7 +593,7 @@
 1457022597 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltimer.cpp
 	"Utils/LTimer.h"
 
-1501259741 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
+1501331573 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
 	"Objects/ZombieObject.h"
 
 1457463908 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\beastobject.h
@@ -644,7 +648,16 @@
 	"GameObject.h"
 	<BottomBar.h>
 
-1501269256 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombiespawner.cpp
+1501331600 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombiespawner.cpp
 	"ZombieSpawner.h"
+	"Map.h"
+
+1502806848 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\bossobject.h
+	"GameObject.h"
+	"BottomBar.h"
+
+1502807485 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\bossobject.cpp
+	"BossObject.h"
+	"BallisticEngine.h"
 	"Map.h"
 

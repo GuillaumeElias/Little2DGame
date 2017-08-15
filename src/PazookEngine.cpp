@@ -34,7 +34,10 @@ PazookEngine::PazookEngine(SDL_Renderer* renderer, SDL_Window* window, LTextureF
 
 PazookEngine::~PazookEngine()
 {
-    //TODO delete all textures
+    delete cardSelectionTexture;
+    delete pazookTexture;
+    delete hoozahTexture;
+    delete answerSelectionTexture;
 }
 
 void PazookEngine::handleEvent(SDL_Event& e){
@@ -65,7 +68,7 @@ void PazookEngine::onEnterPressed(){
         jumpToNextLine();
         selection = 0;
     }else if(inPazookHozaah()){
-        if(/*availableDeck.back() % 2 == selection TODO*/ true){ //if parity of card stayed in deck == pazook->even
+        if(availableDeck.back() % 2 == selection){ //if parity of card stayed in deck == pazook->even
             won = true; //PLAYER WON
         }else{
             currentLine = getNumberOfLines() - 3; //PLAYER LOST -> skip congratulation message

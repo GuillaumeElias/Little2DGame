@@ -26,6 +26,7 @@ BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
     totalBananas = 0;
     pazookVictories = 0;
     maxLevelTime = -1;
+    bossLife = -1;
 }
 
 BottomBar::~BottomBar()
@@ -121,6 +122,8 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
         }else{
             messageOss << "             DEAD IN: " << (maxLevelTime - seconds);
         }
+    }else if(bossLife > 0){
+        messageOss << "        BOSS LIFE: " << bossLife << "/" << BOSS_LIFE;
     }
     std::string message = messageOss.str();
     messageOss.str("");
@@ -158,4 +161,8 @@ void BottomBar::incrementPazookVictory(){
 
 int BottomBar::getPazookVictories(){
     return pazookVictories;
+}
+
+void BottomBar::setBossLife(int bossLife){
+    this->bossLife = bossLife;
 }

@@ -60,6 +60,7 @@
 		<Unit filename="include/Objects/BananaObject.h" />
 		<Unit filename="include/Objects/BeastObject.h" />
 		<Unit filename="include/Objects/BlobObject.h" />
+		<Unit filename="include/Objects/BossObject.h" />
 		<Unit filename="include/Objects/ElevatorObject.h" />
 		<Unit filename="include/Objects/EndObject.h" />
 		<Unit filename="include/Objects/ZombieObject.h" />
@@ -89,6 +90,7 @@
 		<Unit filename="src/Objects/BananaObject.cpp" />
 		<Unit filename="src/Objects/BeastObject.cpp" />
 		<Unit filename="src/Objects/BlobObject.cpp" />
+		<Unit filename="src/Objects/BossObject.cpp" />
 		<Unit filename="src/Objects/ElevatorObject.cpp" />
 		<Unit filename="src/Objects/EndObject.cpp" />
 		<Unit filename="src/Objects/ZombieObject.cpp" />
