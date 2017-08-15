@@ -49,6 +49,10 @@ class GameObject : public IRenderedElement
         int width, height;
         bool dead = false;
         bool disabled = false;
+        bool dying = false;
+        SDL_Rect clip;
+        SDL_Rect dyingClipRect;
+        LTimer dyingFrameTimer;
 
         bool isPlayerAbove(PlayerPosition* playerPos);
         bool isPlayerBelow(PlayerPosition* playerPos);

@@ -41,7 +41,6 @@ class BossObject : public GameObject
         int life;
         Direction direction;
 
-        SDL_Rect clip;
         SDL_Rect collider;
 
         BallisticEngine * ballisticEngine;

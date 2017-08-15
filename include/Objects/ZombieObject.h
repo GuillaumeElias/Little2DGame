@@ -41,8 +41,6 @@ class ZombieObject : public GameObject
         int displacement;
         Direction direction;
 
-        SDL_Rect clip;
-
         ZombieSpawner * spawner;
 };
 

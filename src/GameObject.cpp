@@ -1,5 +1,14 @@
 #include "GameObject.h"
 
+namespace{
+    void initRectangle(SDL_Rect &rectangle, int width, int height){
+        rectangle.w = width;
+        rectangle.h = height;
+        rectangle.x = 0;
+        rectangle.y = 0;
+    }
+}
+
 GameObject::GameObject(SDL_Renderer* renderer, SDL_Window* window, int pX, int pY, LTextureFactory* lTextureFact) : gRenderer(renderer), gWindow(window), posX(pX), posY(pY), lTextureFactory(lTextureFact){
 
 }
@@ -14,6 +23,8 @@ void GameObject::init(){
 
     width = gTexture->getWidth();
     height = gTexture->getHeight();
+    initRectangle(clip, width, height);
+    initRectangle(dyingClipRect, width, height);
 }
 
 GameObject::~GameObject(){
@@ -68,7 +79,36 @@ bool GameObject::checkCollision(const SDL_Rect& b, bool checkOnly){
 
 void GameObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){
     if(!dead){
-         gTexture->render( posX - mapVisibleLevel.x, posY);
+        if(dying){ //if dying -> display death animation (shrinking)
+
+            if(!dyingFrameTimer.isStarted()){
+                dyingFrameTimer.start();
+            }
+
+            if(dyingFrameTimer.getTicks() > MONSTER_DYING_FRAME_TIME){
+
+                dyingClipRect.w /= 2; //shrink texture by 2
+                dyingClipRect.h /= 2;
+                dyingClipRect.x += dyingClipRect.w / 2;
+                dyingClipRect.y += dyingClipRect.h / 2;
+                dyingFrameTimer.reset();
+
+                if(dyingClipRect.w <= 2 || dyingClipRect.h <= 2){
+                    dying = false;
+                    dead = true;
+                    dyingFrameTimer.stop();
+                    return;
+                }
+            }
+
+            SDL_Rect finalClip = dyingClipRect;
+            finalClip.x += clip.x;
+
+            gTexture->render( posX - mapVisibleLevel.x + dyingClipRect.x, posY + dyingClipRect.y, &finalClip);
+        }else{
+            gTexture->render( posX - mapVisibleLevel.x, posY, &clip);
+        }
+
     }
 }
 
@@ -119,6 +159,8 @@ int GameObject::onHit(BulletType bulletType){
 
 void GameObject::rebirth(){
     dead = false;
+    dying = false;
+    initRectangle(dyingClipRect, width, height);
 }
 
 bool GameObject::isDead(){

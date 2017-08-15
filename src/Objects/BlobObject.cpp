@@ -16,6 +16,10 @@ std::string BlobObject::getTextureName(){
 }
 
 int BlobObject::move(PlayerPosition* playerPos){
+    if(dying){
+        return 0;
+    }
+
     if(up){ //if moving up
         posY -= 1;
         if(posY < initPosY - BLOB_JUMP_HEIGHT){ //if passed max jump height
@@ -47,7 +51,7 @@ void BlobObject::onCollision(){
 
 int BlobObject::onHit(BulletType bulletType){
     if(life <= 1){
-        dead = true;
+        dying = true;
         return 1;
     }else{
         life--; //TODO depends on bullet type

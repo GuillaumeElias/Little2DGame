@@ -65,7 +65,7 @@ std::string BossObject::getTextureName(){
 }
 
 int BossObject::move(PlayerPosition* playerPos){
-    if(dead){
+    if(dead || dying){
         return 0;
     }
 
@@ -145,7 +145,7 @@ int BossObject::onHit(BulletType bulletType){
 
     if(bossAttackStep == VULNERABLE){
         if(life <= 1){
-            dead = true;
+            dying = true;
             bottomBar->setBossLife(-1);
             activateEnd();
             return 5;
@@ -180,7 +180,7 @@ void BossObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel
         clip.x = width * BOSS_NB_FRAMES + curFrame * width;
     }
 
-    gTexture->render( posX - mapVisibleLevel.x, posY, &clip);
+    GameObject::render(gRenderer, mapVisibleLevel);
 }
 
 bool BossObject::isPlayerAtRight(){

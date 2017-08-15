@@ -28,6 +28,8 @@ static const int WALKING_ANIMATION_FRAMES = 4;
 static const int END_OBJECT_ANIMATION_FRAMES = 2;
 static const int END_OBJECT_ANIMATION_FRAME_TIME = 300;
 
+static const int MONSTER_DYING_FRAME_TIME = 18;
+
 static const int TRIGGER_WIDTH = 10;
 static const int TRIGGER_DEFAULT_HEIGHT = 100;
 static const int TRIGGER_DIALOG_PARAM_MASK = 100;

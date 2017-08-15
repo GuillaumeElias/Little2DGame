@@ -63,7 +63,7 @@ void ZombieObject::onCollision(){
 
 int ZombieObject::onHit(BulletType bulletType){
     if(life <= 1){
-        dead = true;
+        dying = true;
         return 2;
     }else{
         life--; //TODO depends on bullet type
@@ -82,7 +82,7 @@ void ZombieObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
         clip.x = width;
     }
 
-    gTexture->render( posX - mapVisibleLevel.x, posY, &clip);
+    GameObject::render(gRenderer, mapVisibleLevel);
 }
 
 void ZombieObject::rebirth(){
