@@ -42,6 +42,10 @@ std::string BeastObject::getTextureName(){
 }
 
 int BeastObject::move(PlayerPosition* playerPos){
+    if(dying){
+        return 0;
+    }
+
     collider.y = posY;
     _playerRect.y = playerPos->y;
 
@@ -84,7 +88,7 @@ void BeastObject::onCollision(){
 
 int BeastObject::onHit(BulletType bulletType){
     if(life <= 1){
-        dead = true;
+        dying = true;
         return 3;
     }else{
         life--; //TODO depends on bullet type
@@ -110,11 +114,13 @@ void BeastObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLeve
         clip.x = width * BEAST_ANIM_NB_FRAMES + curFrame * width;
     }
 
-    gTexture->render( posX - mapVisibleLevel.x, posY, &clip);
+    GameObject::render(gRenderer, mapVisibleLevel);
 }
 
 void BeastObject::rebirth(){
+    life = BEAST_LIFE;
     posX = initPosX;
     posY = initPosY;
     animTimer.start();
+    GameObject::rebirth();
 }

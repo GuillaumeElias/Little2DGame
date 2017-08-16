@@ -13,7 +13,7 @@ Game::Game(){
     listenKeys = true;
 
     //initialize game state
-    gameState = MENU/*PLAYING*/; //TODO put back
+    gameState = MENU;
 }
 
 Game::~Game()
@@ -39,9 +39,12 @@ void Game::run(){
 
         PlayerInventory* playerInventory = new PlayerInventory();
         BottomBar* bottomBar = new BottomBar(playerInventory);
-        Map* map = new Map(gRenderer, gWindow, bottomBar, lTextureFactory, playerInventory);
-        BallisticEngine* ballisticEngine = new BallisticEngine(gRenderer);
+        BallisticEngine* ballisticEngine = new BallisticEngine(gRenderer, bottomBar);
+        Map* map = new Map(gRenderer, gWindow, bottomBar, lTextureFactory, playerInventory, ballisticEngine);
+        PazookEngine* pazookEngine = new PazookEngine(gRenderer, gWindow, lTextureFactory);
         Player* player = new Player(gRenderer, gWindow, ballisticEngine, playerInventory);
+        ballisticEngine->setPlayerPosition(player->getPos());
+        map->setPlayerPosition(player->getPos());
 
         //load first level
         map->loadLevel(0);
@@ -100,8 +103,17 @@ void Game::run(){
                     SDL_RenderPresent( gRenderer );
 
                     if(dialogPlayer->isFinished()){ //if dialog is finished
-                        gameState = PLAYING;
-                        listenKeys = true;
+                        if(level < NB_LEVELS){
+                            gameState = PLAYING;
+                            listenKeys = true;
+                            bottomBar->startOrResumeLevelTimer();
+                        }else{
+                            gameState = MENU; //if game is finished
+                            level = -1;
+                            map->loadLevel(0);
+                            SDL_RenderSetViewport( gRenderer, NULL );
+                        }
+
                         break;
                     }
 
@@ -109,6 +121,7 @@ void Game::run(){
 
                 /***************PLAYING******************/
                 case PLAYING:
+                {
                     while( SDL_PollEvent( &e ) != 0 ){
                         if( e.type == SDL_QUIT ){
                             quit = true;
@@ -134,12 +147,28 @@ void Game::run(){
                     for(int i=0; i<gameObjects->size(); i++){
                         if((triggerId = gameObjects->at(i)->move(playerPos)) > 0){ //if a trigger was hit
 
-                            if(triggerId > TRIGGER_CHARACTER_PARAM_MASK){ //if the trigger is linked to a character
+                            if(triggerId > TRIGGER_DIALOG_PARAM_MASK && triggerId < TRIGGER_PAZOOK_PARAM_MASK){ //if the trigger linked to dialog
                                 listenKeys = false;
-                                Character* character = map->getCharacter(triggerId - TRIGGER_CHARACTER_PARAM_MASK); //fetch character
+                                Character* character = map->getCharacter(triggerId - TRIGGER_DIALOG_PARAM_MASK); //fetch character
 
                                 if(character != NULL && dialogPlayer->loadCharacterDialog(level, character)){
                                      gameState = DIALOG;
+                                }
+                            }else if(triggerId > TRIGGER_PAZOOK_PARAM_MASK){ //if trigger linked to pazook game
+                                listenKeys = false;
+                                Character* character = map->getCharacter(triggerId - TRIGGER_PAZOOK_PARAM_MASK); //fetch character
+
+                                if(character != NULL && pazookEngine->loadPazookGame(level, character)){
+                                    gameState = PAZOOK;
+                                    std::vector<GameObject*>* gameObjects = map->getGameObjects();
+
+                                    for(int j=0; j<gameObjects->size(); j++){ //re-enable other pazook triggers
+                                        if(Trigger * trigger = dynamic_cast<Trigger *> (gameObjects->at(j))){
+                                            if(trigger->getTriggerId() > TRIGGER_PAZOOK_PARAM_MASK && trigger->getTriggerId()!=triggerId){
+                                                trigger->reenable();
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -153,6 +182,7 @@ void Game::run(){
                             if(player->hasDied()){ //death animation finished
                                 player->reinit();
                                 map->resetLevel();
+                                ballisticEngine->clearBullets();
                                 bottomBar->rebirth();
                                 dialogPlayer->printGameOver();
                                 gameState = DIALOG;
@@ -167,11 +197,19 @@ void Game::run(){
 
                     }else if(bottomBar->isLevelFinished()){ //if level finished
                         listenKeys = false;
+                        bottomBar->stopLevelTimer();
                         player->reinit(); //reset player position
+                        ballisticEngine->clearBullets();
                         bottomBar->rebirth(); //reset bottom bar
                         map->unloadLevel();
-                        dialogPlayer->loadLevel(level); //load new level dialog
-                        map->loadLevel(++level); //load to next level
+
+                        dialogPlayer->loadLevel(level); //load end level dialog
+                        ++level;
+
+                        if(level < NB_LEVELS){ // if game not finished
+                            map->loadLevel(level); //load next level
+                        }
+
                         gameState = DIALOG; //do to dialog mode
 
                         continue;
@@ -196,6 +234,43 @@ void Game::run(){
                     //Update screen
                     SDL_RenderPresent( gRenderer );
 
+                    break;
+                }
+
+                /***************PAZOOK******************/
+                case PAZOOK:
+                    while(SDL_PollEvent( &e ) != 0 ){
+                        if( e.type == SDL_QUIT ){
+                            quit = true;
+                        }else if(listenKeys){
+                            pazookEngine->handleEvent( e );
+                        }
+                    }
+
+                    //set draw color and render dialog
+                    pazookEngine->render(gRenderer);
+                    SDL_RenderPresent( gRenderer );
+
+                    if(pazookEngine->isFinished()){ //if pazook is finished
+                        gameState = PLAYING;
+                        listenKeys = true;
+                        bottomBar->startOrResumeLevelTimer();
+                        if(pazookEngine->hasWon()){
+                            bottomBar->incrementPazookVictory();
+                            if(bottomBar->getPazookVictories() >= PAZOOK_NB_WINNING_NEEDED){
+                                for(int i=0; i<map->getGameObjects()->size(); i++){
+                                    EndObject * endObject = dynamic_cast<EndObject *> (map->getGameObjects()->at(i));
+                                    if(endObject){
+                                        endObject->setDeactivated(false);
+                                    }
+                                }
+                            }
+                            pazookEngine->reset();
+                        }
+                        break;
+                    }else if(pazookEngine->isInSelection()){
+                        listenKeys = true;
+                    }
                 break;
             }
 

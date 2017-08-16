@@ -1,7 +1,7 @@
 #include "Objects/ZombieObject.h"
 
 ZombieObject::ZombieObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact, int distance)
-: GameObject(renderer, window, pX, pY, lTextFact), initPosX(pX), distance(distance), bottomBar(bottomBar)
+: GameObject(renderer, window, pX, pY, lTextFact), initPosX(pX), distance(distance), bottomBar(bottomBar), spawner(nullptr)
 {
 
 }
@@ -14,6 +14,7 @@ void ZombieObject::init(){
     direction = LEFT;
 
     width = ZOMBIE_WIDTH;
+    displacement = ZOMBIE_INIT_DISPLACEMENT;
 
     clip.y = 0;
     clip.w = width;
@@ -36,13 +37,13 @@ int ZombieObject::move(PlayerPosition* playerPos){
         if(initPosX - posX > distance){ //if exceeded the distance
             direction = RIGHT;
         }else{
-            posX--;
+            posX -= displacement;
         }
     }else{ //RIGHT
         if(posX - initPosX > distance){
             direction = LEFT;
         }else{
-            posX++;
+            posX += displacement;
         }
     }
 
@@ -62,7 +63,7 @@ void ZombieObject::onCollision(){
 
 int ZombieObject::onHit(BulletType bulletType){
     if(life <= 1){
-        dead = true;
+        dying = true;
         return 2;
     }else{
         life--; //TODO depends on bullet type
@@ -81,9 +82,27 @@ void ZombieObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
         clip.x = width;
     }
 
-    gTexture->render( posX - mapVisibleLevel.x, posY, &clip);
+    GameObject::render(gRenderer, mapVisibleLevel);
 }
 
 void ZombieObject::rebirth(){
+    life = ZOMBIE_LIFE;
     posX = initPosX;
+    GameObject::rebirth();
+}
+
+void ZombieObject::setDirection(Direction direction){
+    this->direction = direction;
+}
+
+ZombieSpawner * ZombieObject::getSpawner(){
+    return spawner;
+}
+
+void ZombieObject::setSpawner(ZombieSpawner * zombieSpawner){
+    this->spawner = zombieSpawner;
+}
+
+void ZombieObject::setDisplacement(int displacement){
+    this->displacement = displacement;
 }

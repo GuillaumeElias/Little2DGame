@@ -10,9 +10,10 @@
 #include <Menu.h>
 #include <DialogPlayer.h>
 #include <BallisticEngine.h>
+#include <PazookEngine.h>
 #include <PlayerInventory.h>
 
-enum GameState { MENU, DIALOG, PLAYING, GAME_OVER };
+enum GameState { MENU, DIALOG, PAZOOK, PLAYING, GAME_OVER };
 
 /**
 Contains game core loop and functions.

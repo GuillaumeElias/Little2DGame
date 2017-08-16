@@ -1,9 +1,12 @@
 #include "Map.h"
+#include "BallisticEngine.h"
 
 bool isWall(Uint32 pixel);
 
-Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LTextureFactory* lTextureFactory, PlayerInventory* playerInventory)
-: gRenderer(renderer), gWindow(window), bottomBar(bottomBar), lTextureFactory(lTextureFactory), playerInventory(playerInventory){
+Map::Map(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, LTextureFactory* lTextureFactory,
+          PlayerInventory* playerInventory, BallisticEngine* bulletEngine)
+: gRenderer(renderer), gWindow(window), bottomBar(bottomBar), lTextureFactory(lTextureFactory),
+ playerInventory(playerInventory), ballisticeEngine(bulletEngine) {
 
     //loadLevel(0);
 }
@@ -12,6 +15,7 @@ void Map::loadLevel(int nb){
 
     //build and load level texture
     gLevelTexture = new LMapTexture(gRenderer, gWindow);
+    bottomBar->setMaxLevelTime(0);
 
     std::ostringstream levelPathBaseOss;
     levelPathBaseOss << "levels/level" << nb;
@@ -21,6 +25,7 @@ void Map::loadLevel(int nb){
         return;
     }
 
+    int totalBananasInLevel = 0;
     //read level descriptor text file
     std::ifstream txtFile(std::string(levelPathBaseOss.str() + ".txt").c_str());
     std::string line;
@@ -56,7 +61,7 @@ void Map::loadLevel(int nb){
             gameObjects.push_back(characterObj);
             characters[param] = characterObj;
         }else if(typeStr == "END"){
-            EndObject* endObj = new EndObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory);
+            EndObject* endObj = new EndObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, param);
             endObj->init();
             gameObjects.push_back(endObj);
         }else if(typeStr == "TRIGGER"){
@@ -64,17 +69,34 @@ void Map::loadLevel(int nb){
             triggerObj->init();
             gameObjects.push_back(triggerObj);
 
-            if(param >= 100 && characters.count(param - TRIGGER_CHARACTER_PARAM_MASK) > 0){
-                triggerObj->setCharacter(characters[param - TRIGGER_CHARACTER_PARAM_MASK]);
+            if(param >= 100 && characters.count(param - TRIGGER_DIALOG_PARAM_MASK) > 0){
+                triggerObj->setCharacter(characters[param - TRIGGER_DIALOG_PARAM_MASK]);
             }
         }else if(typeStr == "ITEM"){
             Item* item = new Item(gRenderer, gWindow, posX, posY, lTextureFactory, param, playerInventory, &PlayerInventory::addItem);
             item->init();
             gameObjects.push_back(item);
+        }else if(typeStr == "BANANA"){
+            BananaObject* bananaObj = new BananaObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, &gameObjects);
+            bananaObj->init();
+            gameObjects.push_back(bananaObj);
+            totalBananasInLevel++;
+        }else if(typeStr == "ZOMBIE_SPAWNER"){
+            ZombieSpawner* zombieSpawner = new ZombieSpawner(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, this, param);
+            zombieSpawner->init();
+            gameObjects.push_back(zombieSpawner);
+        }else if(typeStr == "BOSS"){
+            BossObject* boss = new BossObject(gRenderer, gWindow, bottomBar, posX, posY, lTextureFactory, ballisticeEngine, playerPosition, this);
+            boss->init();
+            gameObjects.push_back(boss);
+        }else if(typeStr == "_META_"){
+            bottomBar->setMaxLevelTime(param);
         }
     }
 
     levelPathBaseOss.clear();
+
+    bottomBar->setTotalBananas(totalBananasInLevel);
 
     resetLevel();
 }
@@ -223,8 +245,24 @@ Character* Map::getCharacter(int characterId){
    }
 }
 
+int Map::countLiveZombiesForSpawner(ZombieSpawner * zombieSpawner) const {
+    int liveZombies = 0;
+    for(GameObject * gameObject : gameObjects){
+        if(ZombieObject * zombieObject = dynamic_cast<ZombieObject *> (gameObject)){
+            if(!zombieObject->isDead() && zombieObject->getSpawner() == zombieSpawner){
+                liveZombies++;
+            }
+        }
+    }
+    return liveZombies;
+}
+
 BottomBar* const Map::getBottomBar(){
     return bottomBar;
+}
+
+void Map::setPlayerPosition(PlayerPosition * playerPos){
+    playerPosition = playerPos;
 }
 
 Map::~Map(){

@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
 					<Add directory="include/Objects" />
@@ -56,11 +57,15 @@
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/Objects/BananaObject.h" />
 		<Unit filename="include/Objects/BeastObject.h" />
 		<Unit filename="include/Objects/BlobObject.h" />
+		<Unit filename="include/Objects/BossObject.h" />
 		<Unit filename="include/Objects/ElevatorObject.h" />
 		<Unit filename="include/Objects/EndObject.h" />
 		<Unit filename="include/Objects/ZombieObject.h" />
+		<Unit filename="include/Objects/ZombieSpawner.h" />
+		<Unit filename="include/PazookEngine.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/PlayerInventory.h" />
 		<Unit filename="include/Trigger.h" />
@@ -82,11 +87,15 @@
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Objects/BananaObject.cpp" />
 		<Unit filename="src/Objects/BeastObject.cpp" />
 		<Unit filename="src/Objects/BlobObject.cpp" />
+		<Unit filename="src/Objects/BossObject.cpp" />
 		<Unit filename="src/Objects/ElevatorObject.cpp" />
 		<Unit filename="src/Objects/EndObject.cpp" />
 		<Unit filename="src/Objects/ZombieObject.cpp" />
+		<Unit filename="src/Objects/ZombieSpawner.cpp" />
+		<Unit filename="src/PazookEngine.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PlayerInventory.cpp" />
 		<Unit filename="src/Trigger.cpp" />

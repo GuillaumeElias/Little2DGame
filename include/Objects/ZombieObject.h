@@ -3,6 +3,7 @@
 
 #include <GameObject.h>
 #include <BottomBar.h>
+#include <ZombieSpawner.h>
 
 /**
 Zombie monster. Goes back and forth within set distance.
@@ -22,8 +23,13 @@ class ZombieObject : public GameObject
 
         int move(PlayerPosition* playerPos);
         void rebirth();
+        void setDirection(Direction direction);
 
         std::string getTextureName();
+
+        ZombieSpawner * getSpawner();
+        void setSpawner(ZombieSpawner * zombieSpawner);
+        void setDisplacement(int displacement);
 
     protected:
     private:
@@ -32,9 +38,10 @@ class ZombieObject : public GameObject
         LTimer hitTimer;
         int life;
         int distance;
+        int displacement;
         Direction direction;
 
-        SDL_Rect clip;
+        ZombieSpawner * spawner;
 };
 
 #endif // ZOMBIEOBJECT_H

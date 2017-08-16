@@ -1,7 +1,7 @@
 #include "Objects/EndObject.h"
 
-EndObject::EndObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact)
- : GameObject(renderer, window, pX, pY, lTextFact), bottomBar(bottomBar){
+EndObject::EndObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact, bool deactivate)
+ : GameObject(renderer, window, pX, pY, lTextFact), bottomBar(bottomBar), deactivated(deactivate){
     //Set top left sprite
     gSpriteClips[0].x = 0;
     gSpriteClips[0].y = 0;
@@ -21,6 +21,10 @@ EndObject::~EndObject()
 }
 
 int EndObject::move(PlayerPosition* playerPos){
+    if(deactivated){
+        return 0;
+    }
+
     if(!animTimer.isStarted()){
         animTimer.start();
     }
@@ -41,8 +45,14 @@ std::string EndObject::getTextureName(){
     return "end.png";
 }
 
+void EndObject::setDeactivated(bool deactivated){
+    this->deactivated = deactivated;
+}
+
 void EndObject::onCollision(){
-    bottomBar->levelCompleted();
+    if(!deactivated){
+        bottomBar->levelCompleted();
+    }
 }
 
 void EndObject::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){

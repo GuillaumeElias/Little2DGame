@@ -22,6 +22,11 @@ BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
 
     health = PLAYER_INIT_HEALTH;
     points = 0;
+    currentBananas = 0;
+    totalBananas = 0;
+    pazookVictories = 0;
+    maxLevelTime = -1;
+    bossLife = -1;
 }
 
 BottomBar::~BottomBar()
@@ -40,7 +45,15 @@ void BottomBar::addPoints(int points){
     this->points += points;
 }
 
+void BottomBar::eatBanana(){
+    this->currentBananas++;
+}
+
 bool BottomBar::isPlayerDead(){
+    if(maxLevelTime > 0 && levelTimer.getTicks() / 1000 > maxLevelTime){
+        return true;
+    }
+
     return health <= 0;
 }
 
@@ -48,28 +61,42 @@ bool BottomBar::isLevelFinished(){
     return levelFinished;
 }
 
+bool BottomBar::areAllBananasEaten(){
+    return currentBananas >= totalBananas;
+}
+
 void BottomBar::rebirth(){
+    stopLevelTimer();
     levelFinished = false;
     health = PLAYER_INIT_HEALTH;
+    pazookVictories = 0;
+    currentBananas = 0;
+}
+
+void BottomBar::setTotalBananas(int totalBananas){
+    this->totalBananas = totalBananas;
+}
+
+void BottomBar::setMaxLevelTime(int maxLvlTime){
+    this->maxLevelTime = maxLvlTime;
+}
+
+void BottomBar::startOrResumeLevelTimer()
+{
+    if(maxLevelTime > 0){
+        if(!levelTimer.isStarted() || levelTimer.isPaused()){
+            levelTimer.start();
+        }
+    }
+}
+
+void BottomBar::stopLevelTimer(){
+    levelTimer.stop();
 }
 
 void BottomBar::levelCompleted(){
     levelFinished=true;
 }
-
-/*void BottomBar::handleEvent(SDL_Event& e){
-	if( e.type == SDL_KEYDOWN && e.key.repeat == 0 )
-    {
-        switch( e.key.keysym.sym )
-        {
-            case SDLK_UP:  break;
-            case SDLK_DOWN: break;
-            case SDLK_LEFT:  break;
-            case SDLK_RIGHT:  break;
-        }
-    }
-
-}*/
 
 void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
     SDL_Color color = {255, 255, 255};
@@ -86,6 +113,18 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
     //build text
     std::ostringstream messageOss;
     messageOss << "HEALTH: " << health << "   POINTS: " << points << "    ITEMS:";
+    if(totalBananas > 0){
+        messageOss << "             BANANAS: " << currentBananas << "/" << totalBananas;
+    }else if(maxLevelTime > 0){
+        int seconds = levelTimer.getTicks() / 1000;
+        if(seconds > maxLevelTime){
+            messageOss << "             TOO LATE FATTY!";
+        }else{
+            messageOss << "             DEAD IN: " << (maxLevelTime - seconds);
+        }
+    }else if(bossLife > 0){
+        messageOss << "        BOSS LIFE: " << bossLife << "/" << BOSS_LIFE;
+    }
     std::string message = messageOss.str();
     messageOss.str("");
     messageOss.clear();
@@ -113,4 +152,17 @@ void BottomBar::render(SDL_Renderer* gRenderer, const SDL_Rect &visibleLevel){
 
         item->renderInInventory(ITEM_IN_INVENTORY_MARGIN_LEFT + it->first * ITEM_IN_INVENTORY_WIDTH, ITEM_IN_INVENTORY_MARGIN_TOP/(item->getHeight()/10));
     }
+}
+
+void BottomBar::incrementPazookVictory(){
+    pazookVictories++;
+    addPoints(PAZOOK_WINNING_POINTS);
+}
+
+int BottomBar::getPazookVictories(){
+    return pazookVictories;
+}
+
+void BottomBar::setBossLife(int bossLife){
+    this->bossLife = bossLife;
 }

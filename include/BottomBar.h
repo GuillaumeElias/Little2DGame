@@ -27,11 +27,20 @@ class BottomBar : IRenderedElement
 
         void takeHit(int nb);
         void addPoints(int points);
+        void eatBanana();
         void levelCompleted();
 
         bool isPlayerDead();
         bool isLevelFinished();
+        bool areAllBananasEaten();
         void rebirth();
+        void setTotalBananas(int totalBananas);
+        void setMaxLevelTime(int maxLevelTime);
+        void incrementPazookVictory();
+        int getPazookVictories();
+        void startOrResumeLevelTimer();
+        void stopLevelTimer();
+        void setBossLife(int bossLife); //-1 => no boss
     protected:
     private:
         TTF_Font *font;
@@ -40,8 +49,9 @@ class BottomBar : IRenderedElement
 
         PlayerInventory* playerInventory;
 
-        LTimer redTimer;
-        int health, points;
+        LTimer redTimer, levelTimer;
+        int health, points, totalBananas, currentBananas, pazookVictories, bossLife;
+        int maxLevelTime; //in seconds
         bool levelFinished;
        /* SDL_Color fontColor;*/
 };

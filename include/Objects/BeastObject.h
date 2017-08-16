@@ -40,7 +40,6 @@ class BeastObject : public GameObject
         int life;
         Direction direction;
 
-        SDL_Rect clip;
         SDL_Rect collider;
         SDL_Rect _playerRect;
 
