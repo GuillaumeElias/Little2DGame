@@ -1,0 +1,8 @@
+Hello. Would you like to play Pxhfzrtk ?
+It's simple. Just pick a card.
+Well done!
+Now... Is it Pazook or Hoozah?
+Yes! You have won.
+You are very good at this!
+Sorry you have lost.
+Maybe you'll have more luck next time!

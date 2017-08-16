@@ -4,6 +4,7 @@ Item::Item(SDL_Renderer* gRenderer, SDL_Window* gWindow, int posX, int posY, LTe
            PlayerInventory* inventory, bool (PlayerInventory::*addItem) (int, Item*))
  : GameObject(gRenderer, gWindow, posX, posY, lTextureFactory), id(id), playerInventory(inventory), addItemFct(addItem){
     textureName << "items/" << id << ".png";
+    pickedUp = false;
 }
 
 Item::~Item(){
@@ -17,7 +18,6 @@ void Item::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){
 }
 
 void Item::renderInInventory(int x, int y){
-
     gTexture->render(x, y);
 }
 

@@ -12,7 +12,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
 					<Add directory="include/Objects" />
@@ -37,6 +36,7 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add directory="C:/SDL2-2.0.3/i686-w64-mingw32/include/SDL2" />
 			<Add directory="C:/SDL2_image-2.0.0/i686-w64-mingw32/include/SDL2" />
