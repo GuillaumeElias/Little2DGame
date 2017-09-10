@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "SoundEngine.h"
 
 Player::Player(SDL_Renderer* gRenderer, SDL_Window* gWindow, BallisticEngine* ballisEngine, PlayerInventory* inv)
  : IRenderedElement(), ballisticEngine(ballisEngine), inventory(inv) {
@@ -117,6 +118,7 @@ void Player::handleEvent(SDL_Event& e){
         switch( e.key.keysym.sym ){
             case SDLK_SPACE:
                 if(!jumpTimer.isStarted() && mVelY <= 2){ //if not in jump and not in the air
+                    SoundEngine::getInstance()->soundEvent(JUMP);
                     mVelY = -1 * ((superJump)?PLAYER_SUPER_JUMP_VEL:PLAYER_JUMP_VEL);
                     playerSpeed = playerSpeedInJump;
                     jumpTimer.start();
