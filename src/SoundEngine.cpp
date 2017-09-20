@@ -11,8 +11,43 @@ int SoundEngine::musicVolume = MIX_MAX_VOLUME / 4;
 int SoundEngine::currentLevel = -1;
 
 
+std::string soundEventToString(SoundEvent event){
+    switch (event)
+    {
+        case JUMP: return "jump";
+        case SUPERJUMP: return "superjump";
+        case CLICK: return "click";
+        case CLICK_UP: return "clickUp";
+        case CLICK_DOWN: return "clickDown";
+        case FIRE: return "fire";
+        case ITEM: return "item";
+        case BLOB_DEATH: return "blobDeath";
+        case ZOMBIE_DEATH: return "zombieDeath";
+        case BEAST_DEATH: return "beastDeath";
+    }
+}
+
+std::string getPathForSoundEvent(SoundEvent event){
+    std::ostringstream path;
+    path << "sound/" << soundEventToString(event) << ".wav";
+    return path.str();
+}
+
 SoundEngine::SoundEngine()
 {
+    soundEvents = {
+        { JUMP, NULL },
+        { SUPERJUMP, NULL },
+        { CLICK, NULL },
+        { CLICK_UP, NULL },
+        { CLICK_DOWN, NULL },
+        { FIRE, NULL },
+        { ITEM, NULL },
+        { BLOB_DEATH, NULL },
+        { ZOMBIE_DEATH, NULL },
+        { BEAST_DEATH, NULL }
+    };
+
     if( loadMedia() ){
         SoundEngine::instance = this;
     }
@@ -22,33 +57,25 @@ SoundEngine::SoundEngine()
     }
 }
 
-SoundEngine::~SoundEngine()
-{
-    SoundEngine::instance = nullptr;
-
-    if(music){
-        stopMusic();
-    }
-
-    Mix_FreeChunk( jump );
-    jump = nullptr;
-
-}
-
 bool SoundEngine::loadMedia()
 {
     //Loading success flag
     bool success = true;
 
     //Load sound effects
-    jump = Mix_LoadWAV( "sound/jump.wav" );
-    if( jump == NULL )
-    {
-        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
-        return false;
-    }
+    for(auto keyValue : soundEvents){
+        SoundEvent event = keyValue.first;
 
-    Mix_VolumeChunk(jump, effectsVolume);
+        std::string soundPath = getPathForSoundEvent(event);
+        soundEvents[event] = Mix_LoadWAV( soundPath.c_str() );
+        if( soundEvents[event] == NULL )
+        {
+            printf( "Failed to load sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+            return false;
+        }
+
+        Mix_VolumeChunk(soundEvents[event], effectsVolume);
+    }
 
     return success;
 }
@@ -105,18 +132,32 @@ void SoundEngine::stopMusic(){
 }
 
 void SoundEngine::soundEvent(SoundEvent soundEvent){
-    Mix_Chunk * chunk;
-
-    switch( soundEvent ){
-        case JUMP:
-            chunk = jump;
-        break;
+    if(!this || soundEvents.empty()) //yes, I know...
+    {
+        return;
     }
 
+    Mix_Chunk * chunk = soundEvents[soundEvent];
     Mix_PlayChannel( -1, chunk, 0 );
-
 }
 
 SoundEngine * SoundEngine::getInstance(){
     return SoundEngine::instance;
+}
+
+SoundEngine::~SoundEngine()
+{
+    SoundEngine::instance = nullptr;
+
+    if(music){
+        stopMusic();
+    }
+
+    for (auto keyValue : soundEvents) {
+        Mix_FreeChunk( keyValue.second );
+        soundEvents[keyValue.first] = nullptr;
+    }
+
+    soundEvents.clear();
+
 }

@@ -1,4 +1,5 @@
 #include "Objects/ZombieObject.h"
+#include "SoundEngine.h"
 
 ZombieObject::ZombieObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact, int distance)
 : GameObject(renderer, window, pX, pY, lTextFact), initPosX(pX), distance(distance), bottomBar(bottomBar), spawner(nullptr)
@@ -64,6 +65,7 @@ void ZombieObject::onCollision(){
 int ZombieObject::onHit(BulletType bulletType){
     if(life <= 1){
         dying = true;
+        SoundEngine::getInstance()->soundEvent(ZOMBIE_DEATH);
         return 2;
     }else{
         life--; //TODO depends on bullet type

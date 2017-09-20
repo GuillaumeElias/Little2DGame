@@ -1,10 +1,11 @@
 #ifndef SOUNDENGINE_H
 #define SOUNDENGINE_H
 
+#include <map>
 #include <SDL_mixer.h>
 #include "../src/Constants.h"
 
-enum SoundEvent{ JUMP };
+enum SoundEvent{ JUMP, SUPERJUMP, CLICK, CLICK_UP, CLICK_DOWN, FIRE, ITEM, BLOB_DEATH, ZOMBIE_DEATH, BEAST_DEATH };
 
 class SoundEngine
 {
@@ -25,7 +26,7 @@ class SoundEngine
         bool loadMedia();
 
         static Mix_Music * music; //static to allow callback functions to access it
-        Mix_Chunk * jump = NULL;
+        std::map<SoundEvent, Mix_Chunk * > soundEvents;
 
         static int effectsVolume, musicVolume;
         static void startNextMusic();

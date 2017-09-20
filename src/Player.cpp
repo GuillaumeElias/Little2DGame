@@ -118,7 +118,7 @@ void Player::handleEvent(SDL_Event& e){
         switch( e.key.keysym.sym ){
             case SDLK_SPACE:
                 if(!jumpTimer.isStarted() && mVelY <= 2){ //if not in jump and not in the air
-                    SoundEngine::getInstance()->soundEvent(JUMP);
+                    SoundEngine::getInstance()->soundEvent(superJump ? SUPERJUMP : JUMP);
                     mVelY = -1 * ((superJump)?PLAYER_SUPER_JUMP_VEL:PLAYER_JUMP_VEL);
                     playerSpeed = playerSpeedInJump;
                     jumpTimer.start();
@@ -128,13 +128,14 @@ void Player::handleEvent(SDL_Event& e){
                 if(inventory->hasItem(2)){ //item 2 = super jump
                     superJump = !superJump;
                     inventory->getItems().at(2)->setDisabled(!superJump); //disable/enable in inventory
-                    std::cout << (superJump?"super jump activated":"super jump disabled") << std::endl;
+                    SoundEngine::getInstance()->soundEvent(superJump ? CLICK_UP : CLICK_DOWN);
                 }
                 break;
             case SDLK_LEFT: mVelX = -10; break; //just for animation
             case SDLK_RIGHT: mVelX = 10; break;
             case SDLK_f:
                 if(inventory->hasItem(1) && !fireTimer.isStarted()){ //item 1 = basic gun
+                    SoundEngine::getInstance()->soundEvent(FIRE);
                     Position bulletPosition = pos;
                     bulletPosition.y += BULLET_PLAYER_TOP_MARGIN;
                     ballisticEngine->fireBullet(bulletPosition, facingLeft() ? LEFT : RIGHT);

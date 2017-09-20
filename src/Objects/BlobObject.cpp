@@ -1,4 +1,5 @@
 #include "Objects/BlobObject.h"
+#include "SoundEngine.h"
 
 BlobObject::BlobObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int pX, int pY, LTextureFactory* lTextFact) : GameObject(renderer, window, pX, pY, lTextFact), initPosY(pY), bottomBar(bottomBar)
 {
@@ -52,6 +53,7 @@ void BlobObject::onCollision(){
 int BlobObject::onHit(BulletType bulletType){
     if(life <= 1){
         dying = true;
+        SoundEngine::getInstance()->soundEvent(BLOB_DEATH);
         return 1;
     }else{
         life--; //TODO depends on bullet type

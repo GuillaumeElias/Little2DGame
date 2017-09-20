@@ -80,6 +80,7 @@ void Game::run(){
                             menu->setMode(START);
                             gameState = PLAYING;
                             player->setPause(false);
+                            soundEngine->resumeMusic();
                         }
                         menu->clearChoice();
 
@@ -218,6 +219,7 @@ void Game::run(){
                         continue;
                     }else if(player->inPause()){
                         if(menu->getMode() != PAUSE){
+                            soundEngine->pauseMusic();
                             menu->setMode(PAUSE);
                             gameState = MENU;
                             SDL_RenderSetViewport( gRenderer, NULL );
