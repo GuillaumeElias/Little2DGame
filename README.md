@@ -36,6 +36,7 @@ The libraries required for this game to run are (so far) :
 1. SDL2
 2. SDL2_Image
 3. SDL2_TTF
+3. SDL2_Mixer
 
 ## Reference
 
