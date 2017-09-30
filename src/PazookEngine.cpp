@@ -1,4 +1,5 @@
 #include "PazookEngine.h"
+#include "SoundEngine.h"
 
 PazookEngine::PazookEngine(SDL_Renderer* renderer, SDL_Window* window, LTextureFactory * textureFact) :
     DialogPlayer(renderer, window),
@@ -46,11 +47,13 @@ void PazookEngine::handleEvent(SDL_Event& e){
             case SDLK_RIGHT:
                 if(selection < getSelectionMax() ){
                     selection++;
+                    SoundEngine::getInstance()->soundEvent(CLICK_UP);
                 }
             break;
             case SDLK_LEFT:
                 if(selection > 0){
                     selection--;
+                    SoundEngine::getInstance()->soundEvent(CLICK_DOWN);
                 }
             break;
             case SDLK_RETURN:
@@ -70,8 +73,10 @@ void PazookEngine::onEnterPressed(){
     }else if(inPazookHozaah()){
         if(availableDeck.back() % 2 == selection){ //if parity of card stayed in deck == pazook->even
             won = true; //PLAYER WON
+            SoundEngine::getInstance()->soundEvent(PAZOOK_WIN);
         }else{
             currentLine = getNumberOfLines() - 3; //PLAYER LOST -> skip congratulation message
+            SoundEngine::getInstance()->soundEvent(PAZOOK_LOSE);
         }
         allowDisplayNextSentence = true;
         inSelection = false;

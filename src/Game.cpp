@@ -196,6 +196,7 @@ void Game::run(){
                         }else{
                             listenKeys = false;
                             player->die(); //kill player
+                            soundEngine->soundEvent(PLAYER_DEATH);
                         }
 
                     }else if(bottomBar->isLevelFinished()){ //if level finished

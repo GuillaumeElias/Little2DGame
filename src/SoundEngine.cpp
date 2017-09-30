@@ -24,6 +24,12 @@ std::string soundEventToString(SoundEvent event){
         case BLOB_DEATH: return "blobDeath";
         case ZOMBIE_DEATH: return "zombieDeath";
         case BEAST_DEATH: return "beastDeath";
+        case PLAYER_DEATH: return "playerDeath";
+        case HURT: return "hurt";
+        case BANANA: return "banana";
+        case PAZOOK_WIN: return "pazookWin";
+        case PAZOOK_LOSE: return "pazookLose";
+        case SPAWN: return "spawn";
     }
 }
 
@@ -45,7 +51,13 @@ SoundEngine::SoundEngine()
         { ITEM, NULL },
         { BLOB_DEATH, NULL },
         { ZOMBIE_DEATH, NULL },
-        { BEAST_DEATH, NULL }
+        { BEAST_DEATH, NULL },
+        { HURT, NULL },
+        { PLAYER_DEATH, NULL },
+        { BANANA, NULL },
+        { PAZOOK_WIN, NULL },
+        { PAZOOK_LOSE, NULL },
+        { SPAWN, NULL }
     };
 
     if( loadMedia() ){

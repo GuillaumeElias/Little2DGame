@@ -1,5 +1,6 @@
 #include "ZombieSpawner.h"
 #include "Map.h"
+#include "SoundEngine.h"
 
 ZombieSpawner::ZombieSpawner(SDL_Renderer* gRenderer, SDL_Window* gWindow, BottomBar* bottomB, int posX, int posY, LTextureFactory* lTextFact,
                               Map* map, int direction )
@@ -72,6 +73,7 @@ void ZombieSpawner::spawnZombie(){
     zombie->setSpawner(this);
     zombie->setDisplacement(2);
     map->getGameObjects()->push_back(zombie);
+    SoundEngine::getInstance()->soundEvent(SPAWN);
 }
 
 void ZombieSpawner::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLevel){
