@@ -30,6 +30,8 @@ std::string soundEventToString(SoundEvent event){
         case PAZOOK_WIN: return "pazookWin";
         case PAZOOK_LOSE: return "pazookLose";
         case SPAWN: return "spawn";
+        case BOSS_FIRE: return "bossFire";
+        case BOSS_DEATH: return "bossDeath";
     }
 }
 
@@ -57,7 +59,9 @@ SoundEngine::SoundEngine()
         { BANANA, NULL },
         { PAZOOK_WIN, NULL },
         { PAZOOK_LOSE, NULL },
-        { SPAWN, NULL }
+        { SPAWN, NULL },
+        { BOSS_FIRE, NULL},
+        { BOSS_DEATH, NULL}
     };
 
     if( loadMedia() ){

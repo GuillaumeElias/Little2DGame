@@ -5,7 +5,24 @@
 #include <SDL_mixer.h>
 #include "../src/Constants.h"
 
-enum SoundEvent{ JUMP, SUPERJUMP, CLICK, CLICK_UP, CLICK_DOWN, FIRE, ITEM, BLOB_DEATH, ZOMBIE_DEATH, BEAST_DEATH, PLAYER_DEATH, HURT, BANANA, PAZOOK_WIN, PAZOOK_LOSE, SPAWN };
+enum SoundEvent{
+    JUMP,
+    SUPERJUMP,
+    CLICK,
+    CLICK_UP,
+    CLICK_DOWN,
+    FIRE,
+    ITEM,
+    BLOB_DEATH,
+    ZOMBIE_DEATH,
+    BEAST_DEATH,
+    PLAYER_DEATH,
+    HURT, BANANA,
+    PAZOOK_WIN,
+    PAZOOK_LOSE,
+    SPAWN,
+    BOSS_FIRE,
+    BOSS_DEATH };
 
 class SoundEngine
 {
