@@ -302,6 +302,7 @@ void Game::run(){
 	close();
 }
 
+/* Most of following code was originally from Lazy Foo' Productions (http://lazyfoo.net/) */
 bool Game::init(){
     //Initialization flag
 	bool success = true;

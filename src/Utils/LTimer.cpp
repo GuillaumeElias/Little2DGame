@@ -9,6 +9,7 @@ LTimer::LTimer(){
     mStarted = false;
 }
 
+/* Most of following code was originally from Lazy Foo' Productions (http://lazyfoo.net/) */
 void LTimer::start(){
     //Start the timer
     mStarted = true;
