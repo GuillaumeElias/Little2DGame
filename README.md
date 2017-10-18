@@ -13,9 +13,9 @@ This game is a work in progress. I'm currenly focusing on the core functionaliti
 
 #### Coming up
 
-1. Music & Sounds (I started working on it already)
-2. Better looking graphics and animations
-3. 32bit & Linux release
+1. Intro/Outro cinematics
+2. Slightly improved level art
+3. Linux release
 
 ## Motivation
 
@@ -23,11 +23,11 @@ The purpose of this game is just a personal exercice which I'll try to make as p
 
 ## Installation
 
-If you run a 64bit Windows you can try running the executable in the bin folder (along with the dll's). Otherwise, you'll have to compile everything using MinGW.
+On Windows, you should be able to run the executable in the bin folder (along with the dll's). Otherwise, you'll have to compile everything using GCC.
 
 ## Environment
 
-I used Code::Blocks 13.12 as IDE with MinGW (GCC 4.8.1).
+I used Code::Blocks 13.12 with MinGW (GCC 4.8.1).
 
 ## Libraries
 
