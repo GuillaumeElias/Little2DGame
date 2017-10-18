@@ -1,4 +1,5 @@
 #include "DialogPlayer.h"
+#include "SoundEngine.h"
 
 DialogPlayer::DialogPlayer(SDL_Renderer* renderer, SDL_Window* window) : gRenderer(renderer), gWindow(window){
 
@@ -120,6 +121,10 @@ void DialogPlayer::render(SDL_Renderer* gRenderer, const SDL_Rect &mapVisibleLev
     }else if(letterTimer.getTicks() > DIALOG_TIME_LETTER){
         letterTimer.stop();
         currentLetter++;          //GO TO NEXT LETTER
+
+        if(line[currentLetter] && !isspace( line.at(currentLetter) ) ){
+            SoundEngine::getInstance()->soundEvent(CLICK); //play click sound if line is not a space
+        }
         return;
     }
 

@@ -101,6 +101,9 @@ static const int BOSS_ATTACK_TIME = 1210;
 static const int BOSS_FIRE_TIME = BOSS_ANIM_FRAME_TIME;
 static const int BOSS_VULNERABLE_TIME = 1600;
 
+static const int MUSIC_FADE_IN = 1000;
+static const int MUSIC_FADE_OUT = 1000;
+
 struct Position{
     int x, y;
 };

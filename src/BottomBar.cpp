@@ -1,4 +1,6 @@
 #include "BottomBar.h"
+#include "SoundEngine.h"
+
 SDL_Texture* loadTexture( std::string path, SDL_Renderer* gRenderer );
 
 BottomBar::BottomBar(PlayerInventory* inventory) : playerInventory(inventory){
@@ -39,6 +41,7 @@ void BottomBar::takeHit(int nb){
     //starts timer for red blink
     redTimer.start();
     health-=nb;
+    SoundEngine::getInstance()->soundEvent(HURT);
 }
 
 void BottomBar::addPoints(int points){
@@ -47,6 +50,7 @@ void BottomBar::addPoints(int points){
 
 void BottomBar::eatBanana(){
     this->currentBananas++;
+    SoundEngine::getInstance()->soundEvent(BANANA);
 }
 
 bool BottomBar::isPlayerDead(){

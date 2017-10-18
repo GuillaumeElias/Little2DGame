@@ -4,6 +4,7 @@
 #include <../src/Constants.h>
 #include <Utils/IRenderedElement.h>
 #include <Utils/LTextureFactory.h>
+#include <SoundEngine.h>
 #include <Player.h>
 #include <BottomBar.h>
 #include <Map.h>

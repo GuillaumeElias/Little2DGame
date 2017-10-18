@@ -36,6 +36,7 @@ void Game::run(){
         Menu* menu = new Menu(gRenderer, gWindow);
         DialogPlayer* dialogPlayer = new DialogPlayer(gRenderer, gWindow);
         LTextureFactory* lTextureFactory = new LTextureFactory(gRenderer);
+        SoundEngine* soundEngine = new SoundEngine();
 
         PlayerInventory* playerInventory = new PlayerInventory();
         BottomBar* bottomBar = new BottomBar(playerInventory);
@@ -74,10 +75,12 @@ void Game::run(){
                         if(level == -1){
                             dialogPlayer->loadLevel(level++); // load intro
                             gameState = DIALOG;
+                            soundEngine->startMusic(0);
                         }else{
                             menu->setMode(START);
                             gameState = PLAYING;
                             player->setPause(false);
+                            soundEngine->resumeMusic();
                         }
                         menu->clearChoice();
 
@@ -193,6 +196,7 @@ void Game::run(){
                         }else{
                             listenKeys = false;
                             player->die(); //kill player
+                            soundEngine->soundEvent(PLAYER_DEATH);
                         }
 
                     }else if(bottomBar->isLevelFinished()){ //if level finished
@@ -205,6 +209,7 @@ void Game::run(){
 
                         dialogPlayer->loadLevel(level); //load end level dialog
                         ++level;
+                        soundEngine->startMusic(level);
 
                         if(level < NB_LEVELS){ // if game not finished
                             map->loadLevel(level); //load next level
@@ -215,6 +220,7 @@ void Game::run(){
                         continue;
                     }else if(player->inPause()){
                         if(menu->getMode() != PAUSE){
+                            soundEngine->pauseMusic();
                             menu->setMode(PAUSE);
                             gameState = MENU;
                             SDL_RenderSetViewport( gRenderer, NULL );
@@ -278,9 +284,21 @@ void Game::run(){
             frameTimer.reset();
         }
 
+        //Free resources
+        delete map;
+        delete menu;
+        delete dialogPlayer;
+        delete lTextureFactory;
+        /*delete playerInventory; //TODO fix destructor issues
+        delete bottomBar;
+        delete ballisticEngine;*/
+        delete pazookEngine;
+        delete ballisticEngine;
+        delete player;
+        delete soundEngine;
 	}
 
-	//Free resources and close SDL
+	//...and close SDL
 	close();
 }
 
@@ -289,7 +307,7 @@ bool Game::init(){
 	bool success = true;
 
 	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ){
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0 ){
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		success = false;
 	}else{
@@ -324,6 +342,10 @@ bool Game::init(){
                       printf( "TTF_Init() Failed: " , TTF_GetError() );
                       success = false;
                     }
+                    else if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 1024 ) < 0 ){
+                            printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+                            success = false;
+                    }
                 }
 			}
 		}
@@ -334,6 +356,7 @@ bool Game::init(){
 }
 
 void Game::close(){
+
 	//Destroy window
 	SDL_DestroyRenderer( gRenderer );
 	SDL_DestroyWindow( gWindow );
@@ -341,6 +364,7 @@ void Game::close(){
 	gRenderer = NULL;
 
 	//Quit SDL subsystems
+    Mix_Quit();
 	IMG_Quit();
 	SDL_Quit();
 }

@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "SoundEngine.h"
 
 Menu::Menu(SDL_Renderer* renderer, SDL_Window* window) : gRenderer(renderer), gWindow(window){
     //load textures
@@ -26,11 +27,13 @@ void Menu::handleEvent(SDL_Event& e){
             case SDLK_DOWN:
                 if(selection < NUMBER_MENU_ITEMS - 1 ){
                     selection++;
+                    SoundEngine::getInstance()->soundEvent(CLICK_DOWN);
                 }
             break;
             case SDLK_UP:
                 if(selection > 0){
                     selection--;
+                    SoundEngine::getInstance()->soundEvent(CLICK_UP);
                 }
             break;
             case SDLK_RETURN:

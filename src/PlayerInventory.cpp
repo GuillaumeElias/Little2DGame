@@ -1,4 +1,5 @@
 #include "PlayerInventory.h"
+#include "SoundEngine.h"
 
 PlayerInventory::PlayerInventory(){
 
@@ -14,6 +15,7 @@ bool PlayerInventory::addItem(int id, Item* item){
     }
     std::cout << "add item inventory : " << id << std::endl;
     items[id] = item;
+    SoundEngine::getInstance()->soundEvent(ITEM);
     return true;
 }
 

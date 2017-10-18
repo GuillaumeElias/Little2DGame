@@ -41,12 +41,14 @@
 			<Add directory="C:/SDL2-2.0.3/i686-w64-mingw32/include/SDL2" />
 			<Add directory="C:/SDL2_image-2.0.0/i686-w64-mingw32/include/SDL2" />
 			<Add directory="C:/SDL2_ttf-2.0.12/i686-w64-mingw32/include/SDL2" />
+			<Add directory="C:/SDL2_mixer-2.0.1/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer" />
 			<Add directory="C:/SDL2-2.0.3/i686-w64-mingw32/lib" />
 			<Add directory="C:/SDL2_image-2.0.0/i686-w64-mingw32/lib" />
 			<Add directory="C:/SDL2_ttf-2.0.12/i686-w64-mingw32/lib" />
+			<Add directory="C:/SDL2_mixer-2.0.1/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="include/BallisticEngine.h" />
 		<Unit filename="include/BottomBar.h" />
@@ -68,6 +70,7 @@
 		<Unit filename="include/PazookEngine.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/PlayerInventory.h" />
+		<Unit filename="include/SoundEngine.h" />
 		<Unit filename="include/Trigger.h" />
 		<Unit filename="include/Utils/IRenderedElement.h" />
 		<Unit filename="include/Utils/LMapTexture.h" />
@@ -98,6 +101,7 @@
 		<Unit filename="src/PazookEngine.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PlayerInventory.cpp" />
+		<Unit filename="src/SoundEngine.cpp" />
 		<Unit filename="src/Trigger.cpp" />
 		<Unit filename="src/Utils/LMapTexture.cpp" />
 		<Unit filename="src/Utils/LTexture.cpp" />

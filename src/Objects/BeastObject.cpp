@@ -1,4 +1,5 @@
 #include "Objects/BeastObject.h"
+#include "SoundEngine.h"
 
 BeastObject::BeastObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomBar, int posX, int posY, LTextureFactory* lTextFact,
                     Map* map, bool (Map::*checkCol) (const SDL_Rect &, bool))
@@ -89,6 +90,7 @@ void BeastObject::onCollision(){
 int BeastObject::onHit(BulletType bulletType){
     if(life <= 1){
         dying = true;
+        SoundEngine::getInstance()->soundEvent(BEAST_DEATH);
         return 3;
     }else{
         life--; //TODO depends on bullet type

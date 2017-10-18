@@ -1,6 +1,7 @@
 #include "BossObject.h"
 #include "BallisticEngine.h"
 #include "Map.h"
+#include "SoundEngine.h"
 
 BossObject::BossObject(SDL_Renderer* renderer, SDL_Window* window, BottomBar* bottomB, int posX, int posY, LTextureFactory* lTextFact,
                         BallisticEngine * ballisticEng, PlayerPosition * playerPos, Map * map)
@@ -98,6 +99,7 @@ int BossObject::move(PlayerPosition* playerPos){
             Position bulPos = Position{ direction==RIGHT ? posX + width : posX, posY + BULLET_BOSS_TOP_MARGIN };
             ballisticEngine->fireBullet(bulPos, direction, true);
             fireTimer.reset();
+            SoundEngine::getInstance()->soundEvent(BOSS_FIRE);
         }
 
         if(attackTimer.getTicks() >= BOSS_ATTACK_TIME){
@@ -148,6 +150,7 @@ int BossObject::onHit(BulletType bulletType){
             dying = true;
             bottomBar->setBossLife(-1);
             activateEnd();
+            SoundEngine::getInstance()->soundEvent(BOSS_DEATH);
             return 5;
         }else{
             life--; //TODO depends on bullet type
