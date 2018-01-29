@@ -354,7 +354,7 @@ bool Game::init(){
 		}
 
 		//Create window
-		gWindow = SDL_CreateWindow( "Little 2D Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+		gWindow = SDL_CreateWindow( "This is a Little 2D Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
                               SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL ){
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -373,6 +373,10 @@ bool Game::init(){
                 }else {
                     //Initialize renderer color
                     SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+
+                    //sets icon on window
+                    SDL_Surface* iconSurface = IMG_Load( "res/icon.bmp" );
+                    SDL_SetWindowIcon(gWindow, iconSurface);
 
                     // Initialize SDL_ttf library
                     if(TTF_Init() != 0){

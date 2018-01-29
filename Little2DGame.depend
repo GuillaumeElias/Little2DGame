@@ -72,7 +72,7 @@
 1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1436655677 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
+1436655678 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
@@ -705,4 +705,312 @@
 	"IRenderedElement.h"
 	"LTexture.h"
 	"LTimer.h"
+
+1517239426 source:c:\users\guillaume\documents\cpp\little2dgame\main.cpp
+	<SDL.h>
+	<stdio.h>
+	<Game.h>
+	<Utils/LTimer.h>
+	<Player.h>
+	"src/Constants.h"
+
+1517226199 c:\users\guillaume\documents\cpp\little2dgame\include\game.h
+	<SDL.h>
+	<../src/Constants.h>
+	<Utils/IRenderedElement.h>
+	<Utils/LTextureFactory.h>
+	<SoundEngine.h>
+	<Player.h>
+	<BottomBar.h>
+	<Map.h>
+	<Menu.h>
+	<DialogPlayer.h>
+	<BallisticEngine.h>
+	<PazookEngine.h>
+	<PlayerInventory.h>
+	<CinematicEngine.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\src\constants.h
+
+1459160258 c:\users\guillaume\documents\cpp\little2dgame\include\utils\irenderedelement.h
+	<SDL.h>
+
+1477853441 c:\users\guillaume\documents\cpp\little2dgame\include\utils\ltexturefactory.h
+	<map>
+	<SDL.h>
+	<LTexture.h>
+
+1517226199 c:\users\guillaume\documents\cpp\little2dgame\include\utils\ltexture.h
+	<string>
+	<iostream>
+	<stdio.h>
+	<cstring>
+	<SDL.h>
+	<SDL_image.h>
+	<../src/Constants.h>
+
+1507468970 c:\users\guillaume\documents\cpp\little2dgame\include\soundengine.h
+	<map>
+	<SDL_mixer.h>
+	"../src/Constants.h"
+
+1477853441 c:\users\guillaume\documents\cpp\little2dgame\include\player.h
+	<iostream>
+	<cmath>
+	<SDL.h>
+	<Utils/LTexture.h>
+	<Utils/LTimer.h>
+	<Utils/IRenderedElement.h>
+	<Map.h>
+	<BallisticEngine.h>
+	<PlayerInventory.h>
+	<../src/Constants.h>
+
+1459160259 c:\users\guillaume\documents\cpp\little2dgame\include\utils\ltimer.h
+	<SDL.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\map.h
+	<iostream>
+	<sstream>
+	<fstream>
+	<vector>
+	<map>
+	<SDL.h>
+	<BottomBar.h>
+	<GameObject.h>
+	<Character.h>
+	<Trigger.h>
+	<PlayerInventory.h>
+	<Utils/IRenderedElement.h>
+	<Utils/LMapTexture.h>
+	<Utils/LTextureFactory.h>
+	<Objects/BlobObject.h>
+	<Objects/ElevatorObject.h>
+	<Objects/EndObject.h>
+	<Objects/ZombieObject.h>
+	<Objects/BeastObject.h>
+	<Objects/BananaObject.h>
+	<Objects/ZombieSpawner.h>
+	<Objects/BossObject.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\bottombar.h
+	<string>
+	<sstream>
+	<Utils/LTexture.h>
+	<Utils/IRenderedElement.h>
+	<SDL.h>
+	"SDL_ttf.h"
+	"SDL_image.h"
+	<Utils/LTimer.h>
+	<PlayerInventory.h>
+
+1459160258 c:\users\guillaume\documents\cpp\little2dgame\include\playerinventory.h
+	<map>
+	<Item.h>
+
+1459160258 c:\users\guillaume\documents\cpp\little2dgame\include\item.h
+	<GameObject.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\gameobject.h
+	<string>
+	<fstream>
+	<sstream>
+	<SDL.h>
+	<Utils/LTimer.h>
+	<Utils/IRenderedElement.h>
+	<Utils/LTexture.h>
+	<Utils/LTextureFactory.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\character.h
+	<vector>
+	<GameObject.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\trigger.h
+	<GameObject.h>
+	<Character.h>
+
+1459160259 c:\users\guillaume\documents\cpp\little2dgame\include\utils\lmaptexture.h
+	<SDL.h>
+	<Utils/LTexture.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\blobobject.h
+	<iostream>
+	<Utils/LTimer.h>
+	<GameObject.h>
+	<BottomBar.h>
+
+1459160258 c:\users\guillaume\documents\cpp\little2dgame\include\objects\elevatorobject.h
+	<iostream>
+	<GameObject.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\endobject.h
+	<GameObject.h>
+	<BottomBar.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\zombieobject.h
+	<GameObject.h>
+	<BottomBar.h>
+	<ZombieSpawner.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\zombiespawner.h
+	"GameObject.h"
+	<BottomBar.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\beastobject.h
+	<GameObject.h>
+	<BottomBar.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\bananaobject.h
+	<vector>
+	<GameObject.h>
+	<BottomBar.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\objects\bossobject.h
+	"GameObject.h"
+	"BottomBar.h"
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\ballisticengine.h
+	"Utils/IRenderedElement.h"
+	"Map.h"
+	"BottomBar.h"
+
+1477853441 c:\users\guillaume\documents\cpp\little2dgame\include\menu.h
+	<SDL.h>
+	<Utils/IRenderedElement.h>
+	<Utils/LTexture.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\dialogplayer.h
+	<vector>
+	<iostream>
+	<sstream>
+	<fstream>
+	<algorithm>
+	<SDL.h>
+	<SDL_ttf.h>
+	<Utils/LTimer.h>
+	<Utils/LTexture.h>
+	<../src/Constants.h>
+	<Utils/IRenderedElement.h>
+	<Character.h>
+
+1505908852 c:\users\guillaume\documents\cpp\little2dgame\include\pazookengine.h
+	<ctime>
+	<SDL.h>
+	<DialogPlayer.h>
+	<Utils/LTexture.h>
+	<Character.h>
+	<LTextureFactory.h>
+
+1517226199 c:\users\guillaume\documents\cpp\little2dgame\include\cinematicengine.h
+	<vector>
+	"IRenderedElement.h"
+	"LTexture.h"
+	"LTimer.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\ballisticengine.cpp
+	"BallisticEngine.h"
+	<set>
+
+1506784097 source:c:\users\guillaume\documents\cpp\little2dgame\src\bottombar.cpp
+	"BottomBar.h"
+	"SoundEngine.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\character.cpp
+	"Character.h"
+	"EndObject.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\gameobject.cpp
+	"GameObject.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\item.cpp
+	"Item.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\map.cpp
+	"Map.h"
+	"BallisticEngine.h"
+
+1505920887 source:c:\users\guillaume\documents\cpp\little2dgame\src\menu.cpp
+	"Menu.h"
+	"SoundEngine.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\bananaobject.cpp
+	"Objects/BananaObject.h"
+	"EndObject.h"
+
+1505921477 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\beastobject.cpp
+	"Objects/BeastObject.h"
+	"SoundEngine.h"
+
+1505915457 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\blobobject.cpp
+	"Objects/BlobObject.h"
+	"SoundEngine.h"
+
+1507469359 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\bossobject.cpp
+	"BossObject.h"
+	"BallisticEngine.h"
+	"Map.h"
+	"SoundEngine.h"
+
+1477853441 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\elevatorobject.cpp
+	"Objects/ElevatorObject.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\endobject.cpp
+	"Objects/EndObject.h"
+
+1505916275 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\zombieobject.cpp
+	"Objects/ZombieObject.h"
+	"SoundEngine.h"
+
+1506787933 source:c:\users\guillaume\documents\cpp\little2dgame\src\objects\zombiespawner.cpp
+	"ZombieSpawner.h"
+	"Map.h"
+	"SoundEngine.h"
+
+1506786984 source:c:\users\guillaume\documents\cpp\little2dgame\src\pazookengine.cpp
+	"PazookEngine.h"
+	"SoundEngine.h"
+
+1507470023 source:c:\users\guillaume\documents\cpp\little2dgame\src\player.cpp
+	"Player.h"
+	"SoundEngine.h"
+
+1505913718 source:c:\users\guillaume\documents\cpp\little2dgame\src\playerinventory.cpp
+	"PlayerInventory.h"
+	"SoundEngine.h"
+
+1505908852 source:c:\users\guillaume\documents\cpp\little2dgame\src\trigger.cpp
+	"Trigger.h"
+
+1477853441 source:c:\users\guillaume\documents\cpp\little2dgame\src\utils\ltexturefactory.cpp
+	"LTextureFactory.h"
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\cinematicengine.cpp
+	"CinematicEngine.h"
+	<iostream>
+	<sstream>
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\dialogplayer.cpp
+	"DialogPlayer.h"
+	"SoundEngine.h"
+
+1517241153 source:c:\users\guillaume\documents\cpp\little2dgame\src\game.cpp
+	"Game.h"
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\soundengine.cpp
+	"SoundEngine.h"
+	<iostream>
+	<sstream>
+	<cstdio>
+	<SDL.h>
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\utils\lmaptexture.cpp
+	"Utils/LMapTexture.h"
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\utils\ltexture.cpp
+	"Utils/LTexture.h"
+
+1517226199 source:c:\users\guillaume\documents\cpp\little2dgame\src\utils\ltimer.cpp
+	"Utils/LTimer.h"
+
+1517240949 source:c:\users\guillaume\documents\cpp\little2dgame\resources.rc
 
