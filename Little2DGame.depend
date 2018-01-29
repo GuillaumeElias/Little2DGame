@@ -5,7 +5,7 @@
 	<stdio.h>
 	<string>
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -36,12 +36,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_main.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -69,33 +69,33 @@
 	<stdlib.h>
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1436659277 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
+1436655677 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\begin_code.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\begin_code.h
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\close_code.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\close_code.h
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_assert.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_audio.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -105,24 +105,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_error.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_endian.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_thread.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -131,18 +131,18 @@
 	<process.h>
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -154,7 +154,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_events.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -168,7 +168,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_video.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -176,12 +176,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rect.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -189,7 +189,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_surface.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -198,11 +198,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -210,27 +210,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -238,11 +238,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_quit.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -250,60 +250,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_touch.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_hints.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_log.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940796 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+1394937196 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_power.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_render.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_system.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -311,24 +311,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_timer.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1394940798 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_version.h
+1394937198 c:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1376156342 c:\sdl2_image-2.0.0\i686-w64-mingw32\include\sdl2\sdl_image.h
+1376152742 c:\sdl2_image-2.0.0\i686-w64-mingw32\include\sdl2\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1452703374 source:c:\users\guillaume\documents\cppstuff\little2dgame\main.cpp
+1452699774 source:c:\users\guillaume\documents\cppstuff\little2dgame\main.cpp
 	<SDL.h>
 	<stdio.h>
 	<Game.h>
@@ -336,14 +336,15 @@
 	<Player.h>
 	"src/Constants.h"
 
-1502910863 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
+1514548509 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\game.cpp
 	"Game.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\game.h
+1508703360 c:\users\guillaume\documents\cppstuff\little2dgame\include\game.h
 	<SDL.h>
 	<../src/Constants.h>
 	<Utils/IRenderedElement.h>
 	<Utils/LTextureFactory.h>
+	<SoundEngine.h>
 	<Player.h>
 	<BottomBar.h>
 	<Map.h>
@@ -352,6 +353,7 @@
 	<BallisticEngine.h>
 	<PazookEngine.h>
 	<PlayerInventory.h>
+	<CinematicEngine.h>
 
 1451169362 c:\users\guillaume\documents\cppstuff\little2dgame\include\ltexture.h
 	<string>
@@ -371,10 +373,11 @@
 1436723438 c:\users\guillaume\documents\cppstuff\little2dgame\include\ltimer.h
 	<SDL.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\player.cpp
 	"Player.h"
+	"SoundEngine.h"
 
-1502831500 c:\users\guillaume\documents\cppstuff\little2dgame\include\player.h
+1502827900 c:\users\guillaume\documents\cppstuff\little2dgame\include\player.h
 	<iostream>
 	<cmath>
 	<SDL.h>
@@ -386,9 +389,9 @@
 	<PlayerInventory.h>
 	<../src/Constants.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\src\constants.h
+1505056945 c:\users\guillaume\documents\cppstuff\little2dgame\src\constants.h
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\bottombar.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\bottombar.h
 	<string>
 	<sstream>
 	<Utils/LTexture.h>
@@ -399,22 +402,23 @@
 	<Utils/LTimer.h>
 	<PlayerInventory.h>
 
-1376156544 c:\sdl2_ttf-2.0.12\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+1376152944 c:\sdl2_ttf-2.0.12\i686-w64-mingw32\include\sdl2\sdl_ttf.h
 	"SDL.h"
 	"begin_code.h"
 	"close_code.h"
 
-1502901792 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\bottombar.cpp
+1508345506 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\bottombar.cpp
 	"BottomBar.h"
+	"SoundEngine.h"
 
 1452605069 c:\users\guillaume\documents\cppstuff\little2dgame\include\irenderedelement.h
 	<SDL.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
+1505047023 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\map.cpp
 	"Map.h"
 	"BallisticEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\map.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\map.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -448,7 +452,7 @@
 	<SDL.h>
 	<LTexture.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\gameobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\gameobject.h
 	<string>
 	<fstream>
 	<sstream>
@@ -466,7 +470,7 @@
 	<LTimer.h>
 	<GameObject.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\gameobject.cpp
+1502898193 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\gameobject.cpp
 	"GameObject.h"
 
 1452444138 c:\users\guillaume\documents\cppstuff\little2dgame\include\elevatorobject.h
@@ -482,18 +486,20 @@
 1452444149 c:\users\guillaume\documents\cppstuff\little2dgame\include\endobject.h
 	<GameObject.h>
 
-1502831603 c:\users\guillaume\documents\cppstuff\little2dgame\include\menu.h
+1502828003 c:\users\guillaume\documents\cppstuff\little2dgame\include\menu.h
 	<SDL.h>
 	<Utils/IRenderedElement.h>
 	<Utils/LTexture.h>
 
-1502831565 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\menu.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\menu.cpp
 	"Menu.h"
+	"SoundEngine.h"
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\dialogplayer.cpp
+1514473674 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\dialogplayer.cpp
 	"DialogPlayer.h"
+	"SoundEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\dialogplayer.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\dialogplayer.h
 	<vector>
 	<iostream>
 	<sstream>
@@ -507,26 +513,26 @@
 	<Utils/IRenderedElement.h>
 	<Character.h>
 
-1502901792 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\character.cpp
+1502898192 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\character.cpp
 	"Character.h"
 	"EndObject.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\character.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\character.h
 	<vector>
 	<GameObject.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\trigger.cpp
+1502898193 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\trigger.cpp
 	"Trigger.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\trigger.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\trigger.h
 	<GameObject.h>
 	<Character.h>
 
-1502901792 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
+1502898192 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\ballisticengine.cpp
 	"BallisticEngine.h"
 	<set>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\ballisticengine.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\ballisticengine.h
 	"Utils/IRenderedElement.h"
 	"Map.h"
 	"BottomBar.h"
@@ -537,10 +543,10 @@
 1452698733 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\zombieobject.cpp
 	"ZombieObject.h"
 
-1502831595 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\irenderedelement.h
+1502827995 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\irenderedelement.h
 	<SDL.h>
 
-1457464218 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltexture.h
+1509899469 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltexture.h
 	<string>
 	<iostream>
 	<stdio.h>
@@ -549,94 +555,99 @@
 	<SDL_image.h>
 	<../src/Constants.h>
 
-1457464376 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltimer.h
+1508348544 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltimer.h
 	<SDL.h>
 
-1457464112 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\lmaptexture.h
+1508347361 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\lmaptexture.h
 	<SDL.h>
 	<Utils/LTexture.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\blobobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\blobobject.h
 	<iostream>
 	<Utils/LTimer.h>
 	<GameObject.h>
 	<BottomBar.h>
 
-1465136274 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\elevatorobject.h
+1465132674 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\elevatorobject.h
 	<iostream>
 	<GameObject.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\endobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\endobject.h
 	<GameObject.h>
 	<BottomBar.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombieobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombieobject.h
 	<GameObject.h>
 	<BottomBar.h>
 	<ZombieSpawner.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\blobobject.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\blobobject.cpp
 	"Objects/BlobObject.h"
+	"SoundEngine.h"
 
-1465136817 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\elevatorobject.cpp
+1465133217 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\elevatorobject.cpp
 	"Objects/ElevatorObject.h"
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\endobject.cpp
+1502898193 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\endobject.cpp
 	"Objects/EndObject.h"
 
-1457022369 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\lmaptexture.cpp
+1508347824 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\lmaptexture.cpp
 	"Utils/LMapTexture.h"
 
-1457022452 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltexture.cpp
+1509899476 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltexture.cpp
 	"Utils/LTexture.h"
 
-1457022597 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltimer.cpp
+1508348615 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltimer.cpp
 	"Utils/LTimer.h"
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombieobject.cpp
 	"Objects/ZombieObject.h"
+	"SoundEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\beastobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\beastobject.h
 	<GameObject.h>
 	<BottomBar.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\beastobject.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\beastobject.cpp
 	"Objects/BeastObject.h"
+	"SoundEngine.h"
 
-1497810295 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltexturefactory.h
+1497806695 c:\users\guillaume\documents\cppstuff\little2dgame\include\utils\ltexturefactory.h
 	<map>
 	<SDL.h>
 	<LTexture.h>
 
-1463506862 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltexturefactory.cpp
+1463503262 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\utils\ltexturefactory.cpp
 	"LTextureFactory.h"
 
-1457465353 c:\users\guillaume\documents\cppstuff\little2dgame\include\item.h
+1457461753 c:\users\guillaume\documents\cppstuff\little2dgame\include\item.h
 	<GameObject.h>
 
-1457466097 c:\users\guillaume\documents\cppstuff\little2dgame\include\playerinventory.h
+1457462497 c:\users\guillaume\documents\cppstuff\little2dgame\include\playerinventory.h
 	<map>
 	<Item.h>
 
-1502911028 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\item.cpp
+1502907562 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\item.cpp
 	"Item.h"
 
-1457463669 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\playerinventory.cpp
+1505925570 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\playerinventory.cpp
 	"PlayerInventory.h"
+	"SoundEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\bananaobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\bananaobject.h
 	<vector>
 	<GameObject.h>
 	<BottomBar.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\bananaobject.cpp
+1502898193 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\bananaobject.cpp
 	"Objects/BananaObject.h"
 	"EndObject.h"
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\pazookengine.cpp
+1508345506 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\pazookengine.cpp
 	"PazookEngine.h"
+	"SoundEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\pazookengine.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\pazookengine.h
 	<ctime>
 	<SDL.h>
 	<DialogPlayer.h>
@@ -644,20 +655,54 @@
 	<Character.h>
 	<LTextureFactory.h>
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombiespawner.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\zombiespawner.h
 	"GameObject.h"
 	<BottomBar.h>
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombiespawner.cpp
+1508345506 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\zombiespawner.cpp
 	"ZombieSpawner.h"
 	"Map.h"
+	"SoundEngine.h"
 
-1502901792 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\bossobject.h
+1502898192 c:\users\guillaume\documents\cppstuff\little2dgame\include\objects\bossobject.h
 	"GameObject.h"
 	"BottomBar.h"
 
-1502901793 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\bossobject.cpp
+1508345506 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\objects\bossobject.cpp
 	"BossObject.h"
 	"BallisticEngine.h"
 	"Map.h"
+	"SoundEngine.h"
+
+1508345505 c:\users\guillaume\documents\cppstuff\little2dgame\include\soundengine.h
+	<map>
+	<SDL_mixer.h>
+	"../src/Constants.h"
+
+1451801792 c:\sdl2_mixer-2.0.1\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1509902406 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\soundengine.cpp
+	"SoundEngine.h"
+	<iostream>
+	<sstream>
+	<cstdio>
+	<SDL.h>
+
+1514548701 source:c:\users\guillaume\documents\cppstuff\little2dgame\src\cinematicengine.cpp
+	"CinematicEngine.h"
+	<iostream>
+	<sstream>
+
+1513629220 c:\users\guillaume\documents\cppstuff\little2dgame\include\cinematicengine.h
+	<vector>
+	"IRenderedElement.h"
+	"LTexture.h"
+	"LTimer.h"
 

@@ -13,8 +13,9 @@
 #include <BallisticEngine.h>
 #include <PazookEngine.h>
 #include <PlayerInventory.h>
+#include <CinematicEngine.h>
 
-enum GameState { MENU, DIALOG, PAZOOK, PLAYING, GAME_OVER };
+enum GameState { MENU, CINEMATIC, DIALOG, PAZOOK, PLAYING, GAME_OVER };
 
 /**
 Contains game core loop and functions.

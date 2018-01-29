@@ -114,7 +114,11 @@ void SoundEngine::startNextMusic(){
     }
 
     std::ostringstream path;
-    path << "sound/music/level" << currentLevel << ".mp3";
+    if(currentLevel == -1){
+        path << "sound/music/intro.mp3";
+    }else{
+        path << "sound/music/level" << currentLevel << ".mp3";
+    }
 
     music = Mix_LoadMUS( path.str().c_str() );
     if( music == NULL )

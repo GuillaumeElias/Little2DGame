@@ -29,8 +29,10 @@ DialogPlayer::~DialogPlayer(){
 void DialogPlayer::loadLevel(int nb){
     //get text file for level dialog
     std::ostringstream levelPathBaseOss;
-    if(nb == -1){ // -1 means intro
+    if(nb == -2){ // -1 means intro
         levelPathBaseOss << "text/intro";
+    }else if(nb == -1){ // -1 means intro
+        levelPathBaseOss << "text/introEnd";
     }else{
         levelPathBaseOss << "text/level" << nb;
     }

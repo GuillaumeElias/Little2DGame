@@ -9,7 +9,7 @@ Game::Game(){
     topViewport.w = SCREEN_WIDTH;
     topViewport.h = SCREEN_HEIGHT - MARGIN_BOTTOM;
 
-    level = -1;
+    level = -2;
     listenKeys = true;
 
     //initialize game state
@@ -28,6 +28,8 @@ void Game::run(){
 	}
 	else{
         bool quit = false;
+        bool intro = true;
+        bool postIntro = false;
         int triggerId = 0;
 
         SDL_Event e;
@@ -42,6 +44,7 @@ void Game::run(){
         BottomBar* bottomBar = new BottomBar(playerInventory);
         BallisticEngine* ballisticEngine = new BallisticEngine(gRenderer, bottomBar);
         Map* map = new Map(gRenderer, gWindow, bottomBar, lTextureFactory, playerInventory, ballisticEngine);
+        CinematicEngine * cinematicEngine = new CinematicEngine(gRenderer, gWindow);
         PazookEngine* pazookEngine = new PazookEngine(gRenderer, gWindow, lTextureFactory);
         Player* player = new Player(gRenderer, gWindow, ballisticEngine, playerInventory);
         ballisticEngine->setPlayerPosition(player->getPos());
@@ -72,10 +75,9 @@ void Game::run(){
                     SDL_RenderPresent( gRenderer );
 
                     if(menu->getChoice() == PLAY){ //user selected "PLAY"
-                        if(level == -1){
+                        if(level < 0){
                             dialogPlayer->loadLevel(level++); // load intro
                             gameState = DIALOG;
-                            soundEngine->startMusic(0);
                         }else{
                             menu->setMode(START);
                             gameState = PLAYING;
@@ -89,6 +91,30 @@ void Game::run(){
                         quit = true;
                         break;
                     }
+                break;
+
+                /***************CINEMATIC******************/
+                case CINEMATIC:
+                    while(SDL_PollEvent( &e ) != 0 ){
+                        if( e.type == SDL_QUIT ){
+                            quit = true;
+                        }else if(listenKeys){
+                            dialogPlayer->handleEvent( e );
+                        }
+                    }
+
+                    if(cinematicEngine->getState() == OFF){
+                        gameState = DIALOG;
+                        dialogPlayer->loadLevel(level++); // load intro end text
+                        soundEngine->stopMusic();
+                        intro = false;
+                        postIntro = true;
+                    }else{
+                        SDL_RenderClear( gRenderer );
+                        cinematicEngine->render(gRenderer, map->getVisibleLevel());
+                        SDL_RenderPresent( gRenderer );
+                    }
+
                 break;
 
                 /***************DIALOG******************/
@@ -107,7 +133,17 @@ void Game::run(){
 
                     if(dialogPlayer->isFinished()){ //if dialog is finished
                         if(level < NB_LEVELS){
-                            gameState = PLAYING;
+                            if(intro){
+                                gameState = CINEMATIC;
+                                soundEngine->startMusic(-1);
+                            }else{
+                                gameState = PLAYING;
+
+                                if(postIntro){
+                                    soundEngine->startMusic(0);
+                                    postIntro = false;
+                                }
+                            }
                             listenKeys = true;
                             bottomBar->startOrResumeLevelTimer();
                         }else{
