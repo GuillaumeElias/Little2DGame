@@ -53,6 +53,7 @@
 		<Unit filename="include/BallisticEngine.h" />
 		<Unit filename="include/BottomBar.h" />
 		<Unit filename="include/Character.h" />
+		<Unit filename="include/CinematicEngine.h" />
 		<Unit filename="include/DialogPlayer.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObject.h" />
@@ -81,6 +82,7 @@
 		<Unit filename="src/BallisticEngine.cpp" />
 		<Unit filename="src/BottomBar.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/CinematicEngine.cpp" />
 		<Unit filename="src/Constants.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

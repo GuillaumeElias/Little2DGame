@@ -4,6 +4,7 @@ LTexture::LTexture(SDL_Renderer* renderer, bool inGameViewport) : gRenderer(rend
 	mTexture = NULL;
 	mWidth = 0;
 	mHeight = 0;
+	mScaling = 1;
 }
 
 LTexture::~LTexture(){
@@ -69,11 +70,11 @@ void LTexture::setAlpha( Uint8 alpha ){
 }
 
 void LTexture::render( int x, int y, const SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip ){
-	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
+	SDL_Rect renderQuad = { x, y, mWidth * mScaling, mHeight * mScaling};
 
 	if( clip != NULL ){
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
+		renderQuad.w = clip->w * mScaling;
+		renderQuad.h = clip->h * mScaling;
 	}
 
     if(inGameViewport){
@@ -90,11 +91,19 @@ void LTexture::render( int x, int y, const SDL_Rect* clip, double angle, SDL_Poi
 }
 
 int LTexture::getWidth(){
-	return mWidth;
+	return mWidth * mScaling;
 }
 
 int LTexture::getHeight(){
-	return mHeight;
+	return mHeight * mScaling;
+}
+
+void LTexture::setScaling(float scaling){
+    mScaling = scaling;
+}
+
+float LTexture::getScaling(){
+    return mScaling;
 }
 
 void LTexture::setInGameViewPort(bool inGame){

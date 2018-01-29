@@ -36,6 +36,8 @@ class LTexture{
 
 		int getWidth();
 		int getHeight();
+		void setScaling(float scaling);
+		float getScaling();
 
 		void setInGameViewPort(bool inGame); //set if in game or not
 
@@ -50,6 +52,7 @@ class LTexture{
 
 		int mWidth;
 		int mHeight;
+		float mScaling;
 };
 
 #endif // LTEXTURE_H
