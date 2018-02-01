@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Little2DGame" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/ThisIsALittle2DGame" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -19,7 +19,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Little2DGame" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/ThisIsALittle2DGame" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -79,6 +79,9 @@
 		<Unit filename="include/Utils/LTextureFactory.h" />
 		<Unit filename="include/Utils/LTimer.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="resources.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="src/BallisticEngine.cpp" />
 		<Unit filename="src/BottomBar.cpp" />
 		<Unit filename="src/Character.cpp" />
