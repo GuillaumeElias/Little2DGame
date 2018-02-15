@@ -1,0 +1,24 @@
+
+IDR_APP_ICON ICON "res/icon.ico"
+
+1 VERSIONINFO
+FILEVERSION     0,0,0,1
+PRODUCTVERSION  0,0,0,1
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+		VALUE "CompanyName", "Timmy O' Toole"
+		VALUE "FileVersion", "0.0.1"
+		VALUE "LegalCopyright", "none"
+		VALUE "OriginalFilename", "ThisIsALittle2DGame.exe"
+		VALUE "ProductName", "This is a Little 2D Game"
+		VALUE "ProductVersion", "0.0.1"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x809, 1252
+  END
+END
