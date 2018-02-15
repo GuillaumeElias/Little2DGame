@@ -325,11 +325,10 @@ void Game::run(){
         delete menu;
         delete dialogPlayer;
         delete lTextureFactory;
-        /*delete playerInventory; //TODO fix destructor issues
+        delete playerInventory;
         delete bottomBar;
-        delete ballisticEngine;*/
-        delete pazookEngine;
         delete ballisticEngine;
+        delete pazookEngine;
         delete player;
         delete soundEngine;
 	}
