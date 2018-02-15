@@ -24,7 +24,7 @@ Game::~Game()
 
 void Game::run(){
 	if( !init() ){
-		printf( "Failed to initialize!\n" );
+		std::cerr << "Failed to initialize!\n";
 	}
 	else{
         bool quit = false;
@@ -338,62 +338,61 @@ void Game::run(){
 	close();
 }
 
-/* Most of following code was originally from Lazy Foo' Productions (http://lazyfoo.net/) */
 bool Game::init(){
-    //Initialization flag
-	bool success = true;
 
 	//Initialize SDL
 	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0 ){
-		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
-		success = false;
-	}else{
-		//Set texture filtering to linear
-		if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) ){
-			printf( "Warning: Linear texture filtering not enabled!" );
-		}
-
-		//Create window
-		gWindow = SDL_CreateWindow( "This is a Little 2D Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-                              SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-		if( gWindow == NULL ){
-			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
-			success = false;
-		}else{
-            gRenderer = SDL_CreateRenderer( gWindow, -1, LINUX? SDL_RENDERER_SOFTWARE: SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-			if( gRenderer == NULL ){
-				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
-				success = false;
-			}else{
-			    int imgFlags = IMG_INIT_PNG;
-                if( !( IMG_Init( imgFlags ) & imgFlags ) ){
-                    printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-                    success = false;
-                }else {
-                    //Initialize renderer color
-                    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-
-                    //sets icon on window
-                    SDL_Surface* iconSurface = IMG_Load( "res/icon.bmp" );
-                    SDL_SetWindowIcon(gWindow, iconSurface);
-
-                    // Initialize SDL_ttf library
-                    if(TTF_Init() != 0){
-                      printf( "TTF_Init() Failed: " , TTF_GetError() );
-                      success = false;
-                    }
-                    else if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 1024 ) < 0 ){
-                            printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
-                            success = false;
-                    }
-                }
-			}
-		}
+		std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
+		return false;
 	}
 
-	return success;
+    //Set texture filtering to linear
+    if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) ){
+        std::cerr <<  "Warning: Linear texture filtering not enabled!" << std::endl;
+        return false;
+    }
 
+    //Create window
+    gWindow = SDL_CreateWindow( "This is a Little 2D Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+    if( gWindow == NULL ){
+        std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    //Create renderer
+    gRenderer = SDL_CreateRenderer( gWindow, -1, LINUX? SDL_RENDERER_SOFTWARE: SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if( gRenderer == NULL ){
+        std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
+        return false;
+    }
+
+    //Initialize image flags
+    int imgFlags = IMG_INIT_PNG;
+    if( !( IMG_Init( imgFlags ) & imgFlags ) ){
+        std::cerr << "SDL_image could not initialize! SDL_image Error: " << IMG_GetError() << std::endl;
+        return false;
+    }
+
+    //Initialize renderer color
+    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+
+    //sets icon on window
+    SDL_Surface* iconSurface = IMG_Load( "res/icon.bmp" );
+    SDL_SetWindowIcon(gWindow, iconSurface);
+
+    // Initialize SDL_ttf library
+    if(TTF_Init() != 0){
+      std::cerr << "TTF_Init() Failed: " << TTF_GetError() << std::endl;
+      return false;
+    }
+
+    //Initialize audio
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 1024 ) < 0 ){
+        std::cerr << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << std::endl;
+        return false;
+    }
+
+	return true;
 }
 
 void Game::close(){
