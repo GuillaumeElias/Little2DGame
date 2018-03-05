@@ -7,7 +7,7 @@
 SoundEngine * SoundEngine::instance = nullptr;
 Mix_Music * SoundEngine::music = nullptr;
 int SoundEngine::effectsVolume = 100;
-int SoundEngine::musicVolume = MIX_MAX_VOLUME / 4;
+int SoundEngine::musicVolume = MIX_MAX_VOLUME / 2;
 int SoundEngine::currentLevel = -1;
 
 
