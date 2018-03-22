@@ -13,7 +13,7 @@ This game is a work in progress. I'm currenly focusing on the core functionaliti
 
 #### Coming up
 
-1. Intro/Outro cinematics
+1. Proper intro/outro cinematics
 2. Slightly improved level art
 3. Linux release
 
