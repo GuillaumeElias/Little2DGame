@@ -9,7 +9,7 @@ The idea behind this game is to make a kind of 2D platform game with elements of
 
 #### Now
 
-This game is a work in progress. I'm currenly focusing on the core functionalities and the proper level editing will be done at a later stage. Which means the levels present at this point are only there for a testing purpose.
+This game is still very much the start of what could be a proper game. Nonetheless, I won't have too much time to work on it in the future so there it is.
 
 #### Coming up
 
